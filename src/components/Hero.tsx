@@ -1,0 +1,88 @@
+import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+
+export default function Hero() {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  // Hook into page scroll for cinematic interactive parallax/zoom effects
+  const { scrollY } = useScroll();
+  const videoScale = useTransform(scrollY, [0, 800], [1, 1.12]);
+  const videoOpacity = useTransform(scrollY, [0, 600], [1, 0.4]);
+
+  useEffect(() => {
+    // Safety fallback timeout to fade out the loading overlay in case of slower connection
+    const safetyTimeout = setTimeout(() => {
+      setVideoLoaded(true);
+    }, 2000);
+
+    return () => {
+      clearTimeout(safetyTimeout);
+    };
+  }, []);
+
+  return (
+    <section
+      id="hero"
+      className="relative w-full h-[100dvh] bg-black flex flex-col items-center justify-center overflow-hidden"
+    >
+      {/* Edge-to-Edge Video Showcase Container */}
+      <motion.div
+        style={{ scale: videoScale, opacity: videoOpacity }}
+        className="absolute inset-0 w-full h-full bg-black select-none overflow-hidden"
+      >
+        <iframe
+          src="https://www.youtube.com/embed/9ClONiw5EKg?autoplay=1&mute=1&loop=1&playlist=9ClONiw5EKg&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&disablekb=1&fs=0"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77vh] min-w-full h-[56.25vw] min-h-full border-0 pointer-events-none select-none"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          title="ANTR Labs Hero Video"
+          tabIndex={-1}
+          onLoad={() => setVideoLoaded(true)}
+        />
+
+        {/* Elegant cinematic vignette overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-black/10 pointer-events-none z-10" />
+      </motion.div>
+
+      {/* Solid transparent overlay to catch and disable all mouse, hover, keyboard, and touch events on the iframe */}
+      <div className="absolute inset-0 bg-transparent z-[15] pointer-events-auto cursor-default select-none" />
+
+      {/* Loading Overlay */}
+      {!videoLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
+          <div className="w-12 h-12 border-2 border-neutral-800 border-t-[#FF4500] rounded-full animate-spin" />
+        </div>
+      )}
+
+      {/* Absolute Scroll Down Indicator Element */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4">
+        <motion.div
+          id="hero-scroll-arrow"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          <a
+            href="#philosophy"
+            aria-label="Scroll down to core philosophy"
+            className="block text-[#FF4500] hover:text-white transition-colors focus:outline-none cursor-pointer"
+          >
+            {/* Elegant downward solid triangle exactly like PDF */}
+            <svg
+              className="w-5 sm:w-6 h-5 sm:h-6 fill-current drop-shadow-[0_0_10px_rgba(255,69,0,0.6)]"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon points="12,19 4,7 20,7" />
+            </svg>
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Horizontal divider border */}
+      <div className="absolute bottom-0 left-0 w-full z-10">
+        <div className="w-full border-b border-neutral-900"></div>
+      </div>
+    </section>
+  );
+}
