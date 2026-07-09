@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 
 interface FooterProps {
   onNavigate: (view: "home" | "contact" | "ideas" | "work" | "team", sectionId?: string) => void;
@@ -12,6 +13,12 @@ export default function Footer({ onNavigate }: FooterProps) {
     { label: "TEAM", href: "#team", action: () => onNavigate("team") },
     { label: "IDEAS", href: "#ideas", action: () => onNavigate("ideas") },
     { label: "CONTACT", href: "#contact", action: () => onNavigate("contact") }
+  ];
+
+  const socialLinks = [
+    { label: "Email", href: "mailto:business@antrlabs.space", icon: Mail },
+    { label: "LinkedIn", href: "https://www.linkedin.com/feed/", icon: Linkedin },
+    { label: "Instagram", href: "https://www.instagram.com/antrlabs/", icon: Instagram }
   ];
 
   return (
@@ -37,6 +44,20 @@ export default function Footer({ onNavigate }: FooterProps) {
           <p className="font-sans text-xs text-neutral-500 font-light">
             © {currentYear} ANTRLABS. All rights reserved.
           </p>
+          <div className="flex items-center gap-4 mt-5">
+            {socialLinks.map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={label}
+                className="w-9 h-9 rounded-full border border-neutral-800 text-neutral-400 hover:text-white hover:border-[#FF4500] hover:bg-[#FF4500]/10 transition-colors duration-300 flex items-center justify-center"
+              >
+                <Icon className="w-4 h-4" />
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Right column: Vertical Footer Navigation Links exactly as PDF */}
