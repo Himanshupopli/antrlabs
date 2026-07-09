@@ -97,14 +97,21 @@ const ADVISORS: Advisor[] = [
     role: "Advisor - Strategy",
     company: "247VC",
     image: "https://lh3.googleusercontent.com/d/1rAacX8el-E5esVjkkpRgpFk5AeXD6zsV",
-    linkedinUrl: "https://linkedin.com"
+    linkedinUrl: "https://www.linkedin.com/in/yagnesh2707/?skipRedirect=true"
   },
   {
     name: "VIVEK KRISHNA",
     role: "Advisor - Growth",
     company: "ANVIMA WELLNESS",
     image: "https://lh3.googleusercontent.com/d/1GvlAWiPKMCUHphXmk_FTT0ODJRaGx3sq",
-    linkedinUrl: "https://linkedin.com"
+    linkedinUrl: "https://www.linkedin.com/in/vivek-krishna-97a17010a/?skipRedirect=true"
+  },
+  {
+    name: "SUDHIR VASHIST",
+    role: "Advisor - SEO",
+    company: "SEORCE",
+    image: "",
+    linkedinUrl: "https://www.linkedin.com/in/sudhirvashist/"
   }
 ];
 
@@ -398,12 +405,18 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
               >
                 {/* Grayscale Avatar */}
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl overflow-hidden bg-neutral-950 flex-shrink-0 border border-neutral-800">
-                  <img
-                    src={advisor.image}
-                    alt={advisor.name}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
-                  />
+                  {advisor.image ? (
+                    <img
+                      src={advisor.image}
+                      alt={advisor.name}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-neutral-950 text-neutral-300 font-display text-2xl font-bold tracking-widest">
+                      {advisor.name.split(" ").map((part) => part[0]).join("")}
+                    </div>
+                  )}
                 </div>
 
                 {/* Content details aligned */}
