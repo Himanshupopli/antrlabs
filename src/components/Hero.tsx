@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   // Hook into page scroll for cinematic interactive parallax/zoom effects
   const { scrollY } = useScroll();
@@ -20,6 +22,22 @@ export default function Hero() {
     };
   }, []);
 
+  const handleEnableSound = async () => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    video.muted = false;
+    setIsMuted(false);
+
+    try {
+      await video.play();
+    } catch {
+      video.muted = true;
+      setIsMuted(true);
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -31,9 +49,11 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full bg-black select-none overflow-hidden flex items-center justify-center"
       >
         <video
+          ref={videoRef}
           src="https://res.cloudinary.com/dqdvr35aj/video/upload/v1783324011/homebanner_qjfash.mp4"
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
+          muted={isMuted}
           loop
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
@@ -46,6 +66,16 @@ export default function Hero() {
 
       {/* Solid transparent overlay to catch and disable all mouse, hover, keyboard, and touch events on the iframe */}
       <div className="absolute inset-0 bg-transparent z-[15] pointer-events-auto cursor-default select-none" />
+
+      {isMuted && videoLoaded && (
+        <button
+          type="button"
+          onClick={handleEnableSound}
+          className="absolute right-4 bottom-4 md:right-8 md:bottom-8 z-30 border border-white/20 bg-black/60 px-4 py-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-white backdrop-blur-md transition-colors hover:border-[#FF4500] hover:text-[#FF4500] focus:outline-none"
+        >
+          Sound On
+        </button>
+      )}
 
       {/* Loading Overlay */}
       {!videoLoaded && (
