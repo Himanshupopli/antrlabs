@@ -95,31 +95,6 @@ const ENRICHED_PROJECTS: ProjectDetail[] = [
     ]
   },
   {
-    id: "innovest",
-    title: "Innovest",
-    subtitle: "Next-Gen Investment Ecosystem",
-    description: "Crafting a sophisticated high-trust brand identity and performance-driven digital interfaces for a leading investment network.",
-    category: "D2C Scaling",
-    tags: ["Brand Trust", "Strategy", "Digital Interfaces", "Fintech Scaling"],
-    duration: "8 months",
-    year: "2026",
-    imageUrl: "https://lh3.googleusercontent.com/d/1-xxTlsNNuIV4Ywnagldr6KdabvgnzqMX",
-    isSharkTank: false,
-    metrics: [
-      { label: "Onboarding Friction", value: "-35% Lower" },
-      { label: "Asset Value Sealed", value: "9-Fig Managed" },
-      { label: "Investor Retainment", value: "98.4% Rate" }
-    ],
-    challenge: "Innovest holds access to high-net-worth deal structures but suffered from a generic, tech-heavy interface that felt clinical rather than exclusive. They needed a luxury visual posture that communicated extreme security, compliance, and pedigree.",
-    strategy: "We deployed deep graphite tones, customized geometric type weights, and custom SVG cryptography layouts. We reimagined their investment platform around a highly clean dashboard containing zero unnecessary widgets and presenting complex portfolio metrics with complete clarity.",
-    outcomes: [
-      "Designed and deployed the executive member dashboard with zero-latency load architecture.",
-      "Reduced member registration dropout rates by 35% through custom interactive multi-step verification flows.",
-      "Authored a 150-page digital and physical brand bible regulating all future investor publications.",
-      "Engineered continuous visual trust indicators that established clear authority in investment markets."
-    ]
-  },
-  {
     id: "vc247",
     title: "247VC",
     subtitle: "Early-Stage Venture Fund Catalyst",
