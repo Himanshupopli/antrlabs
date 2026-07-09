@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, Sparkles, TrendingUp, Users, Award, Shield, BookOpen } from "lucide-react";
+import { ArrowLeft, Sparkles, TrendingUp, Users, Award, Shield, BookOpen, ExternalLink } from "lucide-react";
 
 import WorkLogoHeading from "./WorkLogoHeading";
 
@@ -21,6 +21,37 @@ const SUKHAM_PHASE_TWO = {
   displayUnit: "/sukham/phase-2/display-unit.jpg.jpeg",
   socialMedia: "/sukham/phase-2/social-media.jpg.jpeg"
 };
+
+const SUKHAM_PHASE_TWO_LINKS = [
+  {
+    label: "Product Shot",
+    url: "https://youtube.com/shorts/G7hwQ0osckw"
+  },
+  {
+    label: "Product Shot 2",
+    url: "https://youtube.com/shorts/EP1qW7FkbKA?feature=share"
+  },
+  {
+    label: "Ad",
+    url: "https://youtube.com/shorts/zDDIaF2nH20"
+  },
+  {
+    label: "Ad (Square)",
+    url: "https://youtube.com/shorts/AM9ZxUgUrYE"
+  },
+  {
+    label: "Ad",
+    url: "https://youtube.com/shorts/AM9ZxUgUrYE?feature=share"
+  },
+  {
+    label: "Ad",
+    url: "https://youtube.com/shorts/gZwnXpUTDJk"
+  },
+  {
+    label: "Website",
+    url: "https://youtube.com/shorts/Bs5NPFoRns4"
+  }
+];
 
 const SUKHAM_PHASE_THREE = {
   amazonCopy: "/sukham/phase-3/amazon-copy.jpg",
@@ -373,15 +404,29 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
               <div className="flex flex-col bg-neutral-950 border border-neutral-900 rounded-2xl overflow-hidden group sm:col-span-2 lg:col-span-3">
                 <div className="aspect-[16/9] bg-neutral-900 overflow-hidden relative flex items-center justify-center">
                   <iframe
-                    src="https://www.youtube-nocookie.com/embed/0G2gvg36LuM?autoplay=1&mute=1&loop=1&playlist=0G2gvg36LuM&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
+                    src="https://www.youtube-nocookie.com/embed/G7hwQ0osckw?autoplay=1&mute=1&loop=1&playlist=G7hwQ0osckw&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
                     className="absolute inset-0 w-full h-full border-0 pointer-events-none"
                     allow="autoplay; encrypted-media"
-                    title="Sukham Phase 2 Campaign Video"
+                    title="Sukham Phase 2 Product Shot"
                   />
                 </div>
-                <div className="p-4 space-y-1">
+                <div className="p-4 space-y-4">
                   <span className="font-mono text-[9px] tracking-widest text-[#FF4500] uppercase font-bold">PILLAR 07</span>
                   <h3 className="text-xs text-white font-semibold">Videos</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
+                    {SUKHAM_PHASE_TWO_LINKS.map((link, index) => (
+                      <a
+                        key={`${link.label}-${index}`}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between gap-3 rounded-xl border border-neutral-800 bg-black/35 px-4 py-3 text-xs text-neutral-300 transition-colors hover:border-[#FF4500]/60 hover:text-white"
+                      >
+                        <span className="font-mono text-[10px] uppercase tracking-wider">{link.label}</span>
+                        <ExternalLink className="h-3.5 w-3.5 text-[#FF4500] flex-shrink-0" />
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
 
