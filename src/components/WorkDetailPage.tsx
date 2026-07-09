@@ -12,6 +12,7 @@ import FuproPage from "./FuproPage";
 import EnteroPage from "./EnteroPage";
 import StreetballPage from "./StreetballPage";
 import MyTridentPage from "./MyTridentPage";
+import WorkFeatureImageHeading from "./WorkFeatureImageHeading";
 
 interface WorkDetailProps {
   project: {
@@ -332,51 +333,51 @@ const CASE_STUDY_METADATA: Record<string, {
 
 export default function WorkDetailPage({ project, onBack }: WorkDetailProps) {
   if (project.id === "siyah") {
-    return <SiyahPage onBack={onBack} />;
+    return <SiyahPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "vc247") {
-    return <VcPage onBack={onBack} />;
+    return <VcPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "tynor") {
-    return <TynorPage onBack={onBack} />;
+    return <TynorPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "innovest") {
-    return <InnovestPage onBack={onBack} />;
+    return <InnovestPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "zinoha") {
-    return <ZinohaPage onBack={onBack} />;
+    return <ZinohaPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "bisleri") {
-    return <BisleriPage onBack={onBack} />;
+    return <BisleriPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "crustandkettle") {
-    return <CrustAndKettlePage onBack={onBack} />;
+    return <CrustAndKettlePage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "sukham") {
-    return <SukhamPage onBack={onBack} />;
+    return <SukhamPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "fupro") {
-    return <FuproPage onBack={onBack} />;
+    return <FuproPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "entero") {
-    return <EnteroPage onBack={onBack} />;
+    return <EnteroPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "streetball") {
-    return <StreetballPage onBack={onBack} />;
+    return <StreetballPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   if (project.id === "mytrident") {
-    return <MyTridentPage onBack={onBack} />;
+    return <MyTridentPage onBack={onBack} featureImage={project.imageUrl} />;
   }
 
   // Use the project's id to get exact case study details, or fallback to Siyah data (cloned from PDF)
@@ -416,13 +417,9 @@ export default function WorkDetailPage({ project, onBack }: WorkDetailProps) {
 
         {/* 2. Brand Centered Logo */}
         <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="font-display font-extrabold text-5xl sm:text-7xl tracking-[0.15em] text-white block select-none uppercase"
-          >
-            {meta.logo}
-          </motion.span>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <WorkFeatureImageHeading label={meta.logo} imageUrl={project.imageUrl} />
+          </motion.div>
         </div>
 
         {/* 3. High-fidelity thin bordered Metadata Grid exactly like PDF */}

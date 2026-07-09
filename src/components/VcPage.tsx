@@ -1,13 +1,16 @@
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles, TrendingUp, Award, Shield, Quote } from "lucide-react";
 
+import WorkFeatureImageHeading from "./WorkFeatureImageHeading";
+
 interface VcPageProps {
   onBack: () => void;
+  featureImage: string;
 }
 
 const VC247_BEFORE_IMAGE = "/247vc-before.jpg";
 
-export default function VcPage({ onBack }: VcPageProps) {
+export default function VcPage({ onBack, featureImage }: VcPageProps) {
   return (
     <div 
       id="vc247-minimal-page" 
@@ -47,9 +50,7 @@ export default function VcPage({ onBack }: VcPageProps) {
 
         {/* 4. Large 247VC Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
-            247VC
-          </h1>
+          <WorkFeatureImageHeading label="247VC" imageUrl={featureImage} />
         </div>
 
         {/* 5. Clean Metadata Grid */}

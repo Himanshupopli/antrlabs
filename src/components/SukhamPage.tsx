@@ -2,8 +2,11 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles, TrendingUp, Users, Award, Shield, BookOpen } from "lucide-react";
 
+import WorkFeatureImageHeading from "./WorkFeatureImageHeading";
+
 interface SukhamPageProps {
   onBack: () => void;
+  featureImage: string;
 }
 
 const SUKHAM_PHASE_ONE = {
@@ -29,7 +32,7 @@ const SUKHAM_PHASE_THREE = {
   ad: "/sukham/phase-3/ad.jpg"
 };
 
-export default function SukhamPage({ onBack }: SukhamPageProps) {
+export default function SukhamPage({ onBack, featureImage }: SukhamPageProps) {
   return (
     <div 
       id="sukham-minimal-page" 
@@ -69,9 +72,7 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
 
         {/* 4. Large Sukham Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
-            Sukham
-          </h1>
+          <WorkFeatureImageHeading label="Sukham" imageUrl={featureImage} />
         </div>
 
         {/* 5. Clean Metadata Grid */}

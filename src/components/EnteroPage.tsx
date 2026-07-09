@@ -2,11 +2,14 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles, Activity, Eye, Shield, CheckCircle, Info } from "lucide-react";
 
+import WorkFeatureImageHeading from "./WorkFeatureImageHeading";
+
 interface EnteroPageProps {
   onBack: () => void;
+  featureImage: string;
 }
 
-export default function EnteroPage({ onBack }: EnteroPageProps) {
+export default function EnteroPage({ onBack, featureImage }: EnteroPageProps) {
   return (
     <div 
       id="entero-case-study-page" 
@@ -46,9 +49,7 @@ export default function EnteroPage({ onBack }: EnteroPageProps) {
 
         {/* 4. Large Entero Healthcare Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-4xl sm:text-7xl lg:text-8xl tracking-[0.18em] text-white select-none uppercase pl-[0.18em] leading-none">
-            Entero Healthcare
-          </h1>
+          <WorkFeatureImageHeading label="Entero Healthcare" imageUrl={featureImage} />
           <span className="font-mono text-xs sm:text-sm text-neutral-500 tracking-[0.3em] uppercase block mt-4">
             CARENT BRAND PACKAGING SYSTEM
           </span>

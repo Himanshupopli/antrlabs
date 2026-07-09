@@ -1,8 +1,11 @@
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles, TrendingUp, Award, Shield, BookOpen, Layers, Quote } from "lucide-react";
 
+import WorkFeatureImageHeading from "./WorkFeatureImageHeading";
+
 interface InnovestPageProps {
   onBack: () => void;
+  featureImage: string;
 }
 
 const SWARAGYA_LOGO = "/swaragya/swaragya-logo2.png";
@@ -10,7 +13,7 @@ const SWARAGYA_WEBSITE = "/swaragya/website-swargya.jpeg";
 const SWARAGYA_INVESTOR_BROCHURE = "/swaragya/investor-brochure.jpg";
 const SWARAGYA_DESIGN_SYSTEM = "/swaragya/design-system-motifs.jpg";
 
-export default function InnovestPage({ onBack }: InnovestPageProps) {
+export default function InnovestPage({ onBack, featureImage }: InnovestPageProps) {
   return (
     <div 
       id="innovest-minimal-page" 
@@ -50,9 +53,7 @@ export default function InnovestPage({ onBack }: InnovestPageProps) {
 
         {/* 4. Large Innovest Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
-            Innovest
-          </h1>
+          <WorkFeatureImageHeading label="Innovest" imageUrl={featureImage} />
         </div>
 
         {/* 5. Clean Metadata Grid */}

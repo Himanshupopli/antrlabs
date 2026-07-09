@@ -19,11 +19,14 @@ import {
   Layers
 } from "lucide-react";
 
+import WorkFeatureImageHeading from "./WorkFeatureImageHeading";
+
 interface StreetballPageProps {
   onBack: () => void;
+  featureImage: string;
 }
 
-export default function StreetballPage({ onBack }: StreetballPageProps) {
+export default function StreetballPage({ onBack, featureImage }: StreetballPageProps) {
   return (
     <div 
       id="streetball-case-study-page" 
@@ -63,9 +66,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
 
         {/* 4. Large Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-4xl sm:text-7xl lg:text-8xl tracking-[0.18em] text-white select-none uppercase pl-[0.18em] leading-none">
-            Streetball League
-          </h1>
+          <WorkFeatureImageHeading label="Streetball League" imageUrl={featureImage} />
           <span className="font-mono text-xs sm:text-sm text-neutral-500 tracking-[0.3em] uppercase block mt-4">
             Franchise Identity & Team Branding
           </span>
