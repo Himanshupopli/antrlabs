@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowLeft, 
-  Sparkles, 
   Activity, 
   Briefcase, 
   Moon, 
@@ -749,9 +748,14 @@ export default function TynorPage({ onBack }: TynorPageProps) {
         <div className="bg-[#FF3F00] text-black py-24 px-6 sm:px-12 text-center select-none overflow-hidden relative mt-28">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             
-            {/* White circular logo avatar */}
-            <div className="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-8 shadow-xl">
-              <Sparkles className="w-7 h-7 text-[#FF3F00]" />
+            {/* Testimonial portrait */}
+            <div className="w-24 h-24 rounded-full overflow-hidden bg-white border border-black/20 flex items-center justify-center mb-8 shadow-xl">
+              <img
+                src="/testimonials/tynor-abhay-noor.jpg"
+                alt="Abhay Noor"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             {/* Quote Icon */}

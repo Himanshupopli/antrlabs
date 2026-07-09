@@ -576,8 +576,13 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             
             {/* Solid White circular avatar with initial V */}
-            <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-8 shadow-xl" id="quote-avatar">
-              <span className="text-[#FF4500] font-display text-2xl font-black">V</span>
+            <div className="w-24 h-24 rounded-full overflow-hidden bg-white border border-white/30 flex items-center justify-center mb-8 shadow-xl" id="quote-avatar">
+              <img
+                src="/testimonials/sukham-vivek.jpg"
+                alt="Vivek Krishna"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             {/* Quote Icon */}

@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "motion/react";
 import { 
   ArrowLeft, 
-  Trophy, 
   Flame, 
   Shirt, 
   Palette, 
@@ -14,7 +13,6 @@ import {
   Activity, 
   Shield, 
   Eye, 
-  Sparkles,
   Layout,
   Layers
 } from "lucide-react";
@@ -569,8 +567,13 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             
             {/* Dark circular symbol */}
-            <div className="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-8 shadow-xl">
-              <Trophy className="w-7 h-7 text-[#FF4500]" />
+            <div className="w-24 h-24 rounded-full overflow-hidden bg-white border border-black/20 flex items-center justify-center mb-8 shadow-xl">
+              <img
+                src="/testimonials/streetball-meghna.jpg"
+                alt="Meghna Kaur"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             {/* Quote Icon */}

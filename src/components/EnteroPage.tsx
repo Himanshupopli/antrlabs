@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, Sparkles, Activity, Eye, Shield, CheckCircle, Info } from "lucide-react";
+import { ArrowLeft, Activity, Eye, Shield, CheckCircle, Info } from "lucide-react";
 
 import WorkLogoHeading from "./WorkLogoHeading";
 
@@ -289,9 +289,14 @@ export default function EnteroPage({ onBack }: EnteroPageProps) {
         <div className="bg-neutral-950 text-white py-24 px-6 sm:px-12 text-center select-none overflow-hidden relative border-t border-b border-neutral-900">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             
-            {/* Soft subtle circular symbol */}
-            <div className="w-16 h-16 rounded-full border border-neutral-800 flex items-center justify-center mb-8">
-              <Sparkles className="w-6 h-6 text-[#FF4500]" />
+            {/* Testimonial portrait */}
+            <div className="w-24 h-24 rounded-full overflow-hidden bg-white border border-neutral-800 flex items-center justify-center mb-8 shadow-xl">
+              <img
+                src="/testimonials/entero-prem.jpg"
+                alt="Prem Sethi"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             {/* Quote Icon */}

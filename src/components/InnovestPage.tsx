@@ -372,8 +372,13 @@ export default function InnovestPage({ onBack }: InnovestPageProps) {
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             
             {/* Elegant avatar placeholder */}
-            <div className="w-20 h-20 rounded-full bg-white/10 border border-white/20 flex items-center justify-center mb-8 shadow-xl" id="quote-avatar">
-              <Quote className="w-8 h-8 text-white/80" />
+            <div className="w-24 h-24 rounded-full overflow-hidden bg-white border border-white/30 flex items-center justify-center mb-8 shadow-xl" id="quote-avatar">
+              <img
+                src="/testimonials/innovest-kapil.jpg"
+                alt="Kapil Singhal"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             {/* Quote Text */}
