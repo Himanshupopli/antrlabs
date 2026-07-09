@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, Sparkles, TrendingUp, Users, Award, Shield, BookOpen, ExternalLink } from "lucide-react";
+import { ArrowLeft, Sparkles, TrendingUp, Users, Award, Shield, ExternalLink } from "lucide-react";
 
 import WorkLogoHeading from "./WorkLogoHeading";
 
