@@ -53,3 +53,30 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Mobile pages should read as centered layouts; desktop keeps component-level alignment. */
+@media (max-width: 767px) {
+  #antr-labs-app main,
+  #antr-labs-app main section,
+  #antr-labs-app main article,
+  #antr-labs-app main [class*="text-left"],
+  #antr-labs-app main [class*="text-right"] {
+    text-align: center !important;
+  }
+
+  #antr-labs-app main [class*="items-start"],
+  #antr-labs-app main [class*="items-end"] {
+    align-items: center !important;
+  }
+
+  #antr-labs-app main [class*="justify-start"],
+  #antr-labs-app main [class*="justify-end"] {
+    justify-content: center !important;
+  }
+
+  #antr-labs-app main input,
+  #antr-labs-app main textarea,
+  #antr-labs-app main select {
+    text-align: left !important;
+  }
+}
