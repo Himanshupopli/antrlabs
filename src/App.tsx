@@ -25,8 +25,8 @@ const DEFAULT_META = {
 const PAGE_META: Record<View, { title: string; description: string }> = {
   home: DEFAULT_META,
   work: {
-    title: "Selected Work | ANTR Labs",
-    description: "Explore ANTR Labs case studies across brand identity, packaging, growth, campaigns, digital experiences and venture-building work."
+    title: "Performance Branding and Growth Work | ANTR LABS",
+    description: "Explore ANTR LABS' work across brand strategy, identity, events, short films and growth - helping ambitious businesses turn differentiation into demand."
   },
   team: {
     title: "Team | ANTR Labs",
