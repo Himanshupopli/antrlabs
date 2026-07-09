@@ -259,6 +259,69 @@ export default function TynorPage({ onBack }: TynorPageProps) {
                   </div>
                 </div>
 
+                <div className="space-y-8">
+                  <div className="space-y-4 text-center max-w-3xl mx-auto">
+                    <h2 className="font-mono text-sm sm:text-base tracking-[0.3em] text-[#FF3F00] uppercase font-bold">
+                      LIFESTYLE RANGE IN MARKET
+                    </h2>
+                    <p className="font-sans text-sm text-neutral-400 font-light leading-relaxed">
+                      Packaging, retail display and catalogue systems translated the lifestyle pillars into a cohesive product environment.
+                    </p>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div className="aspect-[4/5] sm:aspect-[16/12] bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden relative group">
+                      <img
+                        src="/tynor/lifestyle/tynor-lifestyle2.jpg"
+                        alt="Tynor Lifestyle Range retail display"
+                        className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase border border-white/5">
+                        RETAIL DISPLAY SYSTEM
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="aspect-[16/9] bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden relative group md:col-span-2">
+                        <img
+                          src="/tynor/lifestyle/tynor-lifestyle4.jpg"
+                          alt="Tynor Lifestyle Range brochure cover concepts"
+                          className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-700"
+                          loading="lazy"
+                        />
+                        <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase border border-white/5">
+                          BROCHURE COVER SYSTEM
+                        </div>
+                      </div>
+
+                      <div className="aspect-[4/3] bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden relative group">
+                        <img
+                          src="/tynor/lifestyle/tynor-lifestyle1.jpg"
+                          alt="Tynor Lifestyle Range packaging cube system"
+                          className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-700"
+                          loading="lazy"
+                        />
+                        <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase border border-white/5">
+                          PACKAGING LANGUAGE
+                        </div>
+                      </div>
+
+                      <div className="aspect-[4/3] bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden relative group">
+                        <img
+                          src="/tynor/lifestyle/tynor-lifestyle3.jpg"
+                          alt="Tynor Lifestyle Range catalogue and product information spreads"
+                          className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-700"
+                          loading="lazy"
+                        />
+                        <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase border border-white/5">
+                          CATALOGUE & PRODUCT SPREADS
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Content: Outcome */}
                 <div className="space-y-6 text-center max-w-3xl mx-auto pt-6 border-t border-white/10">
                   <h2 className="font-mono text-sm sm:text-base tracking-[0.3em] text-[#FF3F00] uppercase font-bold">
