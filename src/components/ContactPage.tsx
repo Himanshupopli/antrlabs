@@ -22,6 +22,7 @@ interface FormErrors {
   email?: string;
   company?: string;
   message?: string;
+  submit?: string;
 }
 
 interface ContactPageProps {
@@ -70,12 +71,30 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    setErrors({});
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          ...form,
+          source: "Contact page"
+        })
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || "Unable to send inquiry");
+      }
+
       setIsSubmitting(false);
       setIsSuccess(true);
       setForm({
@@ -86,7 +105,13 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
         company: "",
         message: ""
       });
-    }, 1500);
+    } catch (error) {
+      setIsSubmitting(false);
+      setErrors((prev) => ({
+        ...prev,
+        submit: error instanceof Error ? error.message : "Unable to send inquiry"
+      }));
+    }
   };
 
   return (
@@ -242,6 +267,12 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
                   </div>
 
                   {/* Submit Button */}
+                  {errors.submit && (
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-[#FF4500] text-center">
+                      {errors.submit}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
                     disabled={isSubmitting}

@@ -13,6 +13,7 @@ interface FormErrors {
   name?: string;
   mobile?: string;
   email?: string;
+  submit?: string;
 }
 
 export default function ContactForm() {
@@ -57,18 +58,40 @@ export default function ContactForm() {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setErrors({});
 
-    // Simulate an API call
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          ...form,
+          source: "Homepage contact form"
+        })
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || "Unable to send inquiry");
+      }
+
       setIsSubmitting(false);
       setIsSuccess(true);
       setForm({ name: "", mobile: "", email: "", linkedin: "" });
-    }, 1500);
+    } catch (error) {
+      setIsSubmitting(false);
+      setErrors((prev) => ({
+        ...prev,
+        submit: error instanceof Error ? error.message : "Unable to send inquiry"
+      }));
+    }
   };
 
   return (
@@ -155,6 +178,12 @@ export default function ContactForm() {
                     className="w-full bg-transparent border-b border-black py-3 text-black text-center font-sans text-base placeholder-black/50 focus:placeholder-black/25 focus:border-black focus:outline-none transition-all duration-300"
                   />
                 </div>
+
+                {errors.submit && (
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-red-950 text-center">
+                    {errors.submit}
+                  </p>
+                )}
 
                 {/* Submit button */}
                 <div className="flex justify-center mt-6">
