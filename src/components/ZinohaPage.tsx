@@ -174,9 +174,7 @@ export default function ZinohaPage({ onBack }: ZinohaPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    0{index + 1} / {item.label}
-                  </div>
+
                 </div>
               ))}
             </div>
@@ -200,9 +198,7 @@ export default function ZinohaPage({ onBack }: ZinohaPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                  PRIMARY MARK
-                </div>
+
               </div>
 
               <div className="h-[320px] sm:h-[360px] bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden flex items-center justify-center relative group p-2">
@@ -213,9 +209,7 @@ export default function ZinohaPage({ onBack }: ZinohaPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                  ALTERNATE VARIANT
-                </div>
+
               </div>
 
             </div>
@@ -245,14 +239,7 @@ export default function ZinohaPage({ onBack }: ZinohaPageProps) {
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-6 left-6 text-left">
-                <span className="bg-[#FF4500] text-white font-mono text-[9px] tracking-widest uppercase font-bold py-1.5 px-4 rounded-none block select-none mb-2 w-max">
-                  KEY LAUNCH CAMPAIGN
-                </span>
-                <p className="font-display text-sm sm:text-base text-white/90 font-medium tracking-wide">
-                  Zinoha: Establishing Lifestyle Before Location
-                </p>
-              </div>
+
             </div>
 
             {/* Campaign Phases & The Idea */}

@@ -190,9 +190,7 @@ export default function CrustAndKettlePage({ onBack }: CrustAndKettlePageProps) 
                       loading="lazy"
                     />
                   </div>
-                  <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded text-[9px] font-mono tracking-widest text-neutral-300 uppercase border border-neutral-800">
-                    0{index + 1} / {item.label}
-                  </div>
+
                 </div>
               ))}
             </div>
@@ -219,9 +217,7 @@ export default function CrustAndKettlePage({ onBack }: CrustAndKettlePageProps) 
                       loading="lazy"
                     />
                   </div>
-                  <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded text-[9px] font-mono tracking-widest text-neutral-300 uppercase border border-neutral-800">
-                    0{index + 1} / {item.label}
-                  </div>
+
                 </div>
               ))}
               <p className="sm:col-span-2 text-center text-[10px] font-mono text-neutral-500 tracking-widest uppercase">

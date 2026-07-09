@@ -126,9 +126,7 @@ export default function SiyahPage({ onBack }: SiyahPageProps) {
                       className="w-full h-full object-contain transition-transform duration-700"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
-                      PRIMARY LOGOTYPE
-                    </div>
+
                   </div>
                   <div className="aspect-[4/3] bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden relative group flex items-center justify-center p-2">
                     <img 
@@ -137,9 +135,7 @@ export default function SiyahPage({ onBack }: SiyahPageProps) {
                       className="w-full h-full object-contain transition-transform duration-700"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
-                      BRAND EMBLEM & MOTIF
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -159,9 +155,7 @@ export default function SiyahPage({ onBack }: SiyahPageProps) {
                       loop
                       playsInline
                     />
-                    <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
-                      OUTDOOR RECALL SIGNAL
-                    </div>
+
                   </div>
                   <div className="aspect-[4/3] bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden relative group flex items-center justify-center p-2">
                     <video 
@@ -172,9 +166,7 @@ export default function SiyahPage({ onBack }: SiyahPageProps) {
                       loop
                       playsInline
                     />
-                    <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
-                      INTERACTIVE ATMOSPHERE
-                    </div>
+
                   </div>
                 </div>
               </div>

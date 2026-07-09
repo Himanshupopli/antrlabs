@@ -146,9 +146,7 @@ export default function EnteroPage({ onBack }: EnteroPageProps) {
                 referrerPolicy="no-referrer"
                 loading="lazy"
               />
-              <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                01 / CORE PACKAGING ARCHITECTURE
-              </div>
+
             </div>
           </div>
 
@@ -176,9 +174,7 @@ export default function EnteroPage({ onBack }: EnteroPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[9px] font-mono tracking-widest text-neutral-400 uppercase">
-                  INFORMATION GRID
-                </div>
+
               </div>
 
               <div className="aspect-[3/4] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-lg">
@@ -189,9 +185,7 @@ export default function EnteroPage({ onBack }: EnteroPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[9px] font-mono tracking-widest text-neutral-400 uppercase">
-                  ICON INTEGRATION
-                </div>
+
               </div>
 
               <div className="aspect-[3/4] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-lg">
@@ -202,9 +196,7 @@ export default function EnteroPage({ onBack }: EnteroPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[9px] font-mono tracking-widest text-neutral-400 uppercase">
-                  VARIANT CODES
-                </div>
+
               </div>
             </div>
 
@@ -262,9 +254,7 @@ export default function EnteroPage({ onBack }: EnteroPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
-                    CARENT INFANT PRODUCTION RUN
-                  </div>
+
                 </div>
 
                 <div className="aspect-[4/3] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-lg">
@@ -275,9 +265,7 @@ export default function EnteroPage({ onBack }: EnteroPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
-                    CARENT FLEXI PRODUCTION RUN
-                  </div>
+
                 </div>
               </div>
 
@@ -290,9 +278,7 @@ export default function EnteroPage({ onBack }: EnteroPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
-                  COMPLETE BRAND FAMILY SHELF PRESENTATION
-                </div>
+
               </div>
             </div>
           </div>

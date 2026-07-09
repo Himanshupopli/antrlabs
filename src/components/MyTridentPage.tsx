@@ -115,9 +115,7 @@ export default function MyTridentPage({ onBack }: MyTridentPageProps) {
                 referrerPolicy="no-referrer"
                 loading="lazy"
               />
-              <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                01 / BRAND PORTFOLIO OVERVIEW
-              </div>
+
             </div>
           </div>
 
@@ -183,9 +181,7 @@ export default function MyTridentPage({ onBack }: MyTridentPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    02 / LIFESTYLE CURATION FEAT. CELEBRITY TALENTS
-                  </div>
+
                 </div>
 
                 <div className="aspect-[4/3] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-lg">
@@ -196,9 +192,7 @@ export default function MyTridentPage({ onBack }: MyTridentPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    03 / DIGITAL STORYTELLING & CAMPAIGN ROLLOUT
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -229,9 +223,7 @@ export default function MyTridentPage({ onBack }: MyTridentPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                  04 / MULTI-CHANNEL CONTENT COLLAGE
-                </div>
+
               </div>
             </div>
 

@@ -210,14 +210,6 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                     FUPRO
                   </span>
                 </div>
-
-                {/* Technical measurement indicators */}
-                <div className="absolute top-4 left-4 font-mono text-[8px] text-neutral-600 uppercase tracking-widest hidden sm:block">
-                  SEC // KINETIC_GAIT_ANALYSIS
-                </div>
-                <div className="absolute bottom-4 right-4 font-mono text-[8px] text-neutral-600 uppercase tracking-widest hidden sm:block">
-                  ANGLE // 12.45° FLUID_ROTATION
-                </div>
               </div>
             </div>
           </div>
@@ -247,9 +239,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                  WEB PLATFORM MAIN PAGE
-                </div>
+
               </div>
 
               {/* Grid of 2 items: Web Mockup and Artboard 115 */}
@@ -262,9 +252,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    DIGITAL PRODUCT VIEW
-                  </div>
+
                 </div>
 
                 <div className="aspect-[4/3] bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden flex items-center justify-center relative group">
@@ -275,9 +263,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    STATIONERY, BUSINESS CARDS & SYSTEM MARKS
-                  </div>
+
                 </div>
               </div>
 
@@ -291,9 +277,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    BRAND PATTERNS
-                  </div>
+
                 </div>
 
                 <div className="aspect-square bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden flex items-center justify-center relative group">
@@ -304,9 +288,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    GEOMETRY RULES
-                  </div>
+
                 </div>
 
                 <div className="aspect-square bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden flex items-center justify-center relative group">
@@ -317,9 +299,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    STATIONERY SET & WAX SEAL
-                  </div>
+
                 </div>
               </div>
 
@@ -333,9 +313,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    PACKAGING SYSTEM
-                  </div>
+
                 </div>
 
                 <div className="aspect-square bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden flex items-center justify-center relative group">
@@ -346,9 +324,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    OFFICE MATERIALS & USB KITS
-                  </div>
+
                 </div>
 
                 <div className="aspect-square bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden flex items-center justify-center relative group">
@@ -359,9 +335,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    LABELS, APPAREL & UNIFORMS
-                  </div>
+
                 </div>
               </div>
 

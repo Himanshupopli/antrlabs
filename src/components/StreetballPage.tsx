@@ -151,9 +151,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    01 / LOGO EXPLORATIONS & SYSTEM SCHEMATICS
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -191,9 +189,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    02 / FINAL REGISTERED SPORTS EMBLEM
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -222,9 +218,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                         referrerPolicy="no-referrer"
                         loading="lazy"
                       />
-                      <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[9px] font-mono tracking-widest text-neutral-400 uppercase">
-                        JERSEY EXPLORATIONS / DESIGN ARCHITECTURE
-                      </div>
+
                     </div>
 
                     <div className="aspect-[4/3] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-lg">
@@ -235,9 +229,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                         referrerPolicy="no-referrer"
                         loading="lazy"
                       />
-                      <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[9px] font-mono tracking-widest text-neutral-400 uppercase">
-                        DETAIL SPECIFICATIONS / VECTOR PANELS
-                      </div>
+
                     </div>
                   </div>
 
@@ -251,9 +243,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                         referrerPolicy="no-referrer"
                         loading="lazy"
                       />
-                      <div className="absolute bottom-3 left-3 bg-black/85 backdrop-blur-md px-2 py-1 border border-white/5 rounded text-[8px] font-mono tracking-widest text-neutral-400 uppercase">
-                        HOME JSY / FRONT
-                      </div>
+
                     </div>
 
                     <div className="aspect-[3/4] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-md">
@@ -264,9 +254,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                         referrerPolicy="no-referrer"
                         loading="lazy"
                       />
-                      <div className="absolute bottom-3 left-3 bg-black/85 backdrop-blur-md px-2 py-1 border border-white/5 rounded text-[8px] font-mono tracking-widest text-neutral-400 uppercase">
-                        HOME JSY / FABRIC
-                      </div>
+
                     </div>
 
                     <div className="aspect-[3/4] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-md">
@@ -277,9 +265,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                         referrerPolicy="no-referrer"
                         loading="lazy"
                       />
-                      <div className="absolute bottom-3 left-3 bg-black/85 backdrop-blur-md px-2 py-1 border border-white/5 rounded text-[8px] font-mono tracking-widest text-neutral-400 uppercase">
-                        AWAY JSY / COLLAR
-                      </div>
+
                     </div>
 
                     <div className="aspect-[3/4] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-md">
@@ -290,9 +276,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                         referrerPolicy="no-referrer"
                         loading="lazy"
                       />
-                      <div className="absolute bottom-3 left-3 bg-black/85 backdrop-blur-md px-2 py-1 border border-white/5 rounded text-[8px] font-mono tracking-widest text-neutral-400 uppercase">
-                        AWAY JSY / BACK
-                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -406,9 +390,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                    03 / DELHI INC. ANGULAR MONOCHROME LOGO
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -435,9 +417,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                       referrerPolicy="no-referrer"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                      DELHI INC. / LOGO SYSTEM
-                    </div>
+
                   </div>
 
                   <div className="aspect-[16/10] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-2xl">
@@ -448,9 +428,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                       referrerPolicy="no-referrer"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                      DELHI INC. / COURT & JERSEY SYSTEM
-                    </div>
+
                   </div>
                 </div>
 
@@ -566,9 +544,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                       referrerPolicy="no-referrer"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                      04 / DELHI INC. TEAM SHOWCASE
-                    </div>
+
                   </div>
 
                   <div className="aspect-[4/3] bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden relative group shadow-2xl">
@@ -579,9 +555,7 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
                       referrerPolicy="no-referrer"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1.5 border border-white/5 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none">
-                      05 / DELHI INC. ON-COURT LAYOUT
-                    </div>
+
                   </div>
                 </div>
               </div>

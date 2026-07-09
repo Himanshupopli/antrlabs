@@ -125,9 +125,7 @@ export default function InnovestPage({ onBack }: InnovestPageProps) {
                 referrerPolicy="no-referrer"
                 loading="lazy"
               />
-              <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase border border-neutral-800">
-                SWARAGYA / 01 / BRAND PLATFORM & INTENT
-              </div>
+
             </div>
           </div>
 
@@ -189,9 +187,7 @@ export default function InnovestPage({ onBack }: InnovestPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded text-[9px] font-mono tracking-widest text-neutral-400 uppercase border border-neutral-800">
-                  SWARAGYA / 02 / DESIGN SYSTEM & MOTIFS
-                </div>
+
               </div>
 
               <div className="aspect-[4/3] bg-neutral-950 border border-neutral-900 rounded-xl overflow-hidden relative group">
@@ -202,9 +198,7 @@ export default function InnovestPage({ onBack }: InnovestPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded text-[9px] font-mono tracking-widest text-neutral-400 uppercase border border-neutral-800">
-                  SWARAGYA / 03 / LIFESTYLE PROJECTION
-                </div>
+
               </div>
             </div>
 
@@ -322,9 +316,7 @@ export default function InnovestPage({ onBack }: InnovestPageProps) {
                 referrerPolicy="no-referrer"
                 loading="lazy"
               />
-              <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase border border-neutral-800">
-                SWARAGYA / 04 / COMPREHENSIVE PRESENTATION OVERVIEW
-              </div>
+
             </div>
           </div>
 

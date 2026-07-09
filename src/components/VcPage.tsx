@@ -152,9 +152,7 @@ export default function VcPage({ onBack }: VcPageProps) {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none border border-neutral-800">
-                  01 / Homepage
-                </div>
+
               </div>
 
               {/* Row 2: Thesis & Portfolio */}
@@ -169,9 +167,7 @@ export default function VcPage({ onBack }: VcPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none border border-neutral-800">
-                    02 / Investment Thesis
-                  </div>
+
                 </div>
 
                 {/* 3. Portfolio */}
@@ -183,9 +179,7 @@ export default function VcPage({ onBack }: VcPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none border border-neutral-800">
-                    03 / Portfolio
-                  </div>
+
                 </div>
 
               </div>
@@ -202,9 +196,7 @@ export default function VcPage({ onBack }: VcPageProps) {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono tracking-widest text-neutral-400 uppercase select-none border border-neutral-800">
-                    04 / Apply
-                  </div>
+
                 </div>
 
               </div>
