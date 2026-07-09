@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import WorkLogoHeading from "./WorkLogoHeading";
 import { motion, AnimatePresence } from "motion/react";
+import WorkLogoHeading from "./WorkLogoHeading";
 import { 
   ArrowLeft, 
   Sparkles, 
@@ -15,6 +17,7 @@ import {
   Sliders,
   Maximize2
 } from "lucide-react";
+import WorkLogoHeading from "./WorkLogoHeading";
 
 interface TynorPageProps {
   onBack: () => void;
@@ -63,9 +66,7 @@ export default function TynorPage({ onBack }: TynorPageProps) {
 
         {/* 4. Large Tynor Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
-            Tynor
-          </h1>
+          <WorkLogoHeading label="Tynor" />
         </div>
 
         {/* 5. Minimalist Elegant Case Tab Navigation */}

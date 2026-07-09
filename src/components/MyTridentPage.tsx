@@ -1,5 +1,7 @@
 import React from "react";
+import WorkLogoHeading from "./WorkLogoHeading";
 import { motion } from "motion/react";
+import WorkLogoHeading from "./WorkLogoHeading";
 import { 
   ArrowLeft, 
   Sparkles, 
@@ -15,6 +17,7 @@ import {
   TrendingUp,
   Award
 } from "lucide-react";
+import WorkLogoHeading from "./WorkLogoHeading";
 
 interface MyTridentPageProps {
   onBack: () => void;
@@ -60,9 +63,7 @@ export default function MyTridentPage({ onBack }: MyTridentPageProps) {
 
         {/* 4. Large Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-4xl sm:text-7xl lg:text-8xl tracking-[0.18em] text-white select-none uppercase pl-[0.18em] leading-none">
-            myTrident
-          </h1>
+          <WorkLogoHeading label="MyTrident" />
           <span className="font-mono text-xs sm:text-sm text-neutral-500 tracking-[0.3em] uppercase block mt-4">
             Legacy Enterprise Digital Transformation
           </span>

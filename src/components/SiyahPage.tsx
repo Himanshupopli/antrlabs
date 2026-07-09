@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import WorkLogoHeading from "./WorkLogoHeading";
 
 interface SiyahPageProps {
   onBack: () => void;
@@ -43,9 +44,7 @@ export default function SiyahPage({ onBack }: SiyahPageProps) {
 
         {/* 4. Large SIYAH Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
-            SIYAH
-          </h1>
+          <WorkLogoHeading label="Siyah" />
         </div>
 
         {/* 5. Bordered Metadata Grid as structured in the PDF but updated with actual content */}
