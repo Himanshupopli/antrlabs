@@ -20,7 +20,11 @@ interface FormErrors {
   submit?: string;
 }
 
-export default function ContactForm() {
+interface ContactFormProps {
+  source?: string;
+}
+
+export default function ContactForm({ source = "Homepage contact form" }: ContactFormProps) {
   const [form, setForm] = useState<FormState>({
     name: "",
     mobile: "",
@@ -91,7 +95,7 @@ export default function ContactForm() {
         },
         body: JSON.stringify({
           ...form,
-          source: "Homepage contact form"
+          source
         })
       });
 

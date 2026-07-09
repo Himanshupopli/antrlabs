@@ -169,7 +169,7 @@ export default function IdeasPage({ onBackToHome, onNavigateToSection }: IdeasPa
         </motion.div>
 
         {/* High-contrast Orange Contact Form Section matching the screenshot */}
-        <ContactForm />
+        <ContactForm source="Ideas page contact form" />
       </div>
 
       {/* Slide-out Panel / Article Drawer */}
