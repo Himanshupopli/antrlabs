@@ -29,16 +29,16 @@ const PAGE_META: Record<View, { title: string; description: string }> = {
     description: "Explore ANTR LABS' work across brand strategy, identity, events, short films and growth - helping ambitious businesses turn differentiation into demand."
   },
   team: {
-    title: "Team | ANTR Labs",
-    description: "Meet the ANTR Labs team and advisors behind our brand strategy, identity, content, growth and client success work."
+    title: "Meet the Performance Branding Team | ANTR LABS",
+    description: "Meet the strategists, designers, marketers and technologists behind ANTR LABS - building differentiated brands designed for lasting business growth."
   },
   ideas: {
-    title: "Ideas | ANTR Labs",
-    description: "Read ANTR Labs perspectives on branding, marketing, naming, trust, differentiation and building brands people remember."
+    title: "Insights, Ideas and Perspectives by ANTR LABS",
+    description: "Explore ideas on branding, positioning, differentiation, design and growth from ANTR LABS, a performance branding lab based in New Delhi."
   },
   contact: {
-    title: "Contact | ANTR Labs",
-    description: "Get in touch with ANTR Labs to discuss brand strategy, identity systems, digital experiences, content, growth and go-to-market consulting."
+    title: "Contact ANTR LABS | the Performance Branding Lab",
+    description: "Looking to build a differentiated brand? Connect with ANTR LABS in New Delhi for strategy, execution and scale."
   }
 };
 
