@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles } from "lucide-react";
+
 import WorkLogoHeading from "./WorkLogoHeading";
 
 interface BisleriPageProps {

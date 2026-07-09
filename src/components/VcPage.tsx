@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles, TrendingUp, Award, Shield, Quote } from "lucide-react";
+
 import WorkLogoHeading from "./WorkLogoHeading";
 
 interface VcPageProps {

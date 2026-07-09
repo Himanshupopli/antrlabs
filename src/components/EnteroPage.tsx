@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles, Activity, Eye, Shield, CheckCircle, Info } from "lucide-react";
+
 import WorkLogoHeading from "./WorkLogoHeading";
 
 interface EnteroPageProps {

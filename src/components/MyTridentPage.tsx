@@ -1,7 +1,5 @@
 import React from "react";
-import WorkLogoHeading from "./WorkLogoHeading";
 import { motion } from "motion/react";
-import WorkLogoHeading from "./WorkLogoHeading";
 import { 
   ArrowLeft, 
   Sparkles, 
@@ -17,6 +15,7 @@ import {
   TrendingUp,
   Award
 } from "lucide-react";
+
 import WorkLogoHeading from "./WorkLogoHeading";
 
 interface MyTridentPageProps {

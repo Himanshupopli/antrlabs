@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles, Coffee, Utensils, ArrowRight, Check, Quote, TrendingUp, Award, Shield } from "lucide-react";
+
 import WorkLogoHeading from "./WorkLogoHeading";
 
 interface CrustAndKettlePageProps {

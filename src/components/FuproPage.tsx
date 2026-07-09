@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Award, Activity, Compass } from "lucide-react";
+
 import WorkLogoHeading from "./WorkLogoHeading";
 
 interface FuproPageProps {

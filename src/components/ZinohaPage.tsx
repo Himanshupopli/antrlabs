@@ -1,7 +1,5 @@
 import React from "react";
-import WorkLogoHeading from "./WorkLogoHeading";
 import { motion } from "motion/react";
-import WorkLogoHeading from "./WorkLogoHeading";
 import { 
   ArrowLeft, 
   Play, 
@@ -16,6 +14,7 @@ import {
   Instagram, 
   Volume2 
 } from "lucide-react";
+
 import WorkLogoHeading from "./WorkLogoHeading";
 
 interface ZinohaPageProps {

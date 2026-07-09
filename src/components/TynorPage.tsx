@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import WorkLogoHeading from "./WorkLogoHeading";
 import { motion, AnimatePresence } from "motion/react";
-import WorkLogoHeading from "./WorkLogoHeading";
 import { 
   ArrowLeft, 
   Sparkles, 
@@ -17,6 +15,7 @@ import {
   Sliders,
   Maximize2
 } from "lucide-react";
+
 import WorkLogoHeading from "./WorkLogoHeading";
 
 interface TynorPageProps {
