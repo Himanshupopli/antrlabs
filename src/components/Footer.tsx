@@ -22,9 +22,9 @@ export default function Footer({ onNavigate }: FooterProps) {
 
   return (
     <footer id="footer" className="bg-black text-white py-16 sm:py-20 px-6 md:px-12 border-t border-neutral-900 select-none">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center sm:items-start gap-12 text-center sm:text-left">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-12 text-center md:text-left">
         {/* Left column: Logo & Meta Info */}
-        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <a
             href="#"
             onClick={(e) => {
@@ -43,7 +43,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <p className="font-sans text-xs text-neutral-500 font-light">
             © {currentYear} ANTRLABS. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 mt-5">
+          <div className="flex items-center justify-center md:justify-start gap-4 mt-5">
             {socialLinks.map(({ label, href, icon: Icon }) => (
               <a
                 key={label}
@@ -60,7 +60,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         </div>
 
         {/* Right column: Vertical Footer Navigation Links exactly as PDF */}
-        <div className="flex flex-col items-center sm:items-end gap-5 text-center sm:text-right">
+        <div className="flex flex-col items-center md:items-end gap-5 text-center md:text-right">
           {footerLinks.map((link) => (
             <a
               key={link.label}
