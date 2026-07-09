@@ -4,7 +4,6 @@ import {
   Check, 
   ArrowRight, 
   AlertCircle, 
-  ChevronDown, 
   ArrowLeft 
 } from "lucide-react";
 
@@ -14,8 +13,6 @@ interface ContactState {
   email: string;
   linkedin: string;
   company: string;
-  inquiryType: string;
-  budget: string;
   message: string;
 }
 
@@ -23,23 +20,9 @@ interface FormErrors {
   name?: string;
   mobile?: string;
   email?: string;
+  company?: string;
   message?: string;
 }
-
-const INQUIRY_TYPES = [
-  "End-to-End Brand Building",
-  "Typography & Identity Systems",
-  "Digital Experience & Architecture",
-  "Capital Positioning Strategy",
-  "General Collaboration"
-];
-
-const BUDGET_RANGES = [
-  "Under ₹5L",
-  "₹5L – ₹15L",
-  "₹15L – ₹50L",
-  "₹50L+"
-];
 
 interface ContactPageProps {
   onBackToHome: () => void;
@@ -52,8 +35,6 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
     email: "",
     linkedin: "",
     company: "",
-    inquiryType: INQUIRY_TYPES[0],
-    budget: BUDGET_RANGES[1],
     message: ""
   });
 
@@ -82,6 +63,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
     } else if (!/^[+]?[0-9\s-]{7,15}$/.test(form.mobile)) {
       tempErrors.mobile = "Please enter a valid phone number";
     }
+    if (!form.company.trim()) tempErrors.company = "Company name is required";
     if (!form.message.trim()) tempErrors.message = "Message details are required";
 
     setErrors(tempErrors);
@@ -102,8 +84,6 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
         email: "",
         linkedin: "",
         company: "",
-        inquiryType: INQUIRY_TYPES[0],
-        budget: BUDGET_RANGES[1],
         message: ""
       });
     }, 1500);
@@ -140,7 +120,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
               GET IN TOUCH
             </h1>
             <p className="font-sans text-neutral-400 text-lg sm:text-xl font-light mt-6 max-w-2xl mx-auto leading-relaxed">
-              Let's craft your absolute difference. Complete our diagnostic inquiry layout below to connect directly with our key brand architects.
+              Let's craft your absolute difference.
             </p>
           </motion.div>
         </div>
@@ -185,9 +165,14 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
                         name="company"
                         value={form.company}
                         onChange={handleInputChange}
-                        placeholder="Company Name (Optional)"
+                        placeholder="Company Name"
                         className="w-full bg-transparent border-b border-neutral-800 py-3 text-white placeholder-neutral-600 focus:placeholder-neutral-500 focus:border-[#FF4500] focus:outline-none transition-colors"
                       />
+                      {errors.company && (
+                        <span className="absolute right-0 bottom-3 text-[#FF4500] flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider bg-black px-1.5">
+                          <AlertCircle className="w-3 h-3" /> {errors.company}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -227,52 +212,6 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    {/* Inquiry Dropdown */}
-                    <div className="flex flex-col text-left">
-                      <label className="font-mono text-[10px] text-neutral-500 tracking-widest uppercase mb-1.5">
-                        Inquiry Scope
-                      </label>
-                      <div className="relative">
-                        <select
-                          name="inquiryType"
-                          value={form.inquiryType}
-                          onChange={handleInputChange}
-                          className="w-full bg-neutral-900 border border-neutral-800 py-3 px-4 text-sm text-neutral-300 rounded-xl focus:border-[#FF4500] focus:outline-none appearance-none cursor-pointer"
-                        >
-                          {INQUIRY_TYPES.map((type) => (
-                            <option key={type} value={type}>
-                              {type}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown className="absolute right-3 top-3.5 w-4 h-4 text-neutral-500 pointer-events-none" />
-                      </div>
-                    </div>
-
-                    {/* Budget Dropdown */}
-                    <div className="flex flex-col text-left">
-                      <label className="font-mono text-[10px] text-neutral-500 tracking-widest uppercase mb-1.5">
-                        Estimated Budget
-                      </label>
-                      <div className="relative">
-                        <select
-                          name="budget"
-                          value={form.budget}
-                          onChange={handleInputChange}
-                          className="w-full bg-neutral-900 border border-neutral-800 py-3 px-4 text-sm text-neutral-300 rounded-xl focus:border-[#FF4500] focus:outline-none appearance-none cursor-pointer"
-                        >
-                          {BUDGET_RANGES.map((range) => (
-                            <option key={range} value={range}>
-                              {range}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown className="absolute right-3 top-3.5 w-4 h-4 text-neutral-500 pointer-events-none" />
-                      </div>
-                    </div>
-                  </div>
-
                   {/* LinkedIn */}
                   <div className="relative">
                     <input
@@ -292,7 +231,7 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
                       rows={5}
                       value={form.message}
                       onChange={handleInputChange}
-                      placeholder="Briefly describe your brand philosophy and what differentiates you from your immediate competitors."
+                      placeholder="How can we help you?"
                       className="w-full bg-transparent border-b border-neutral-800 py-3 text-white placeholder-neutral-600 focus:placeholder-neutral-500 focus:border-[#FF4500] focus:outline-none transition-colors resize-none"
                     />
                     {errors.message && (
