@@ -16,14 +16,11 @@ import {
   Award
 } from "lucide-react";
 
-import WorkFeatureImageHeading from "./WorkFeatureImageHeading";
-
 interface MyTridentPageProps {
   onBack: () => void;
-  featureImage: string;
 }
 
-export default function MyTridentPage({ onBack, featureImage }: MyTridentPageProps) {
+export default function MyTridentPage({ onBack }: MyTridentPageProps) {
   return (
     <div 
       id="mytrident-case-study-page" 
@@ -63,7 +60,9 @@ export default function MyTridentPage({ onBack, featureImage }: MyTridentPagePro
 
         {/* 4. Large Title */}
         <div className="text-center mb-20 px-4">
-          <WorkFeatureImageHeading label="MyTrident" imageUrl={featureImage} />
+          <h1 className="font-display font-black text-4xl sm:text-7xl lg:text-8xl tracking-[0.18em] text-white select-none uppercase pl-[0.18em] leading-none">
+            MyTrident
+          </h1>
           <span className="font-mono text-xs sm:text-sm text-neutral-500 tracking-[0.3em] uppercase block mt-4">
             Legacy Enterprise Digital Transformation
           </span>

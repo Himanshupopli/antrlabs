@@ -15,11 +15,8 @@ import {
   Volume2 
 } from "lucide-react";
 
-import WorkFeatureImageHeading from "./WorkFeatureImageHeading";
-
 interface ZinohaPageProps {
   onBack: () => void;
-  featureImage: string;
 }
 
 const ZINOHA_LOGO_EXPLORATIONS = [
@@ -63,7 +60,7 @@ const ZINOHA_SOCIAL_REELS = [
   }
 ];
 
-export default function ZinohaPage({ onBack, featureImage }: ZinohaPageProps) {
+export default function ZinohaPage({ onBack }: ZinohaPageProps) {
   return (
     <div 
       id="zinoha-minimal-page" 
@@ -103,7 +100,9 @@ export default function ZinohaPage({ onBack, featureImage }: ZinohaPageProps) {
 
         {/* 4. Large Zinoha Title */}
         <div className="text-center mb-20 px-4">
-          <WorkFeatureImageHeading label="Zinoha" imageUrl={featureImage} />
+          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
+            Zinoha
+          </h1>
         </div>
 
         {/* 5. Clean Metadata Grid */}

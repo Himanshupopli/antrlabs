@@ -2,14 +2,11 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles } from "lucide-react";
 
-import WorkFeatureImageHeading from "./WorkFeatureImageHeading";
-
 interface BisleriPageProps {
   onBack: () => void;
-  featureImage: string;
 }
 
-export default function BisleriPage({ onBack, featureImage }: BisleriPageProps) {
+export default function BisleriPage({ onBack }: BisleriPageProps) {
   return (
     <div 
       id="bisleri-minimal-page" 
@@ -49,7 +46,9 @@ export default function BisleriPage({ onBack, featureImage }: BisleriPageProps) 
 
         {/* 4. Large Bisleri Title */}
         <div className="text-center mb-20 px-4">
-          <WorkFeatureImageHeading label="Bisleri" imageUrl={featureImage} />
+          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
+            Bisleri
+          </h1>
         </div>
 
         {/* 5. Clean Metadata Grid */}
