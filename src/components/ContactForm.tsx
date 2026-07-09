@@ -7,12 +7,16 @@ interface FormState {
   mobile: string;
   email: string;
   linkedin: string;
+  company: string;
+  message: string;
 }
 
 interface FormErrors {
   name?: string;
   mobile?: string;
   email?: string;
+  company?: string;
+  message?: string;
   submit?: string;
 }
 
@@ -21,14 +25,16 @@ export default function ContactForm() {
     name: "",
     mobile: "",
     email: "",
-    linkedin: ""
+    linkedin: "",
+    company: "",
+    message: ""
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
     // Clear errors immediately when typing
@@ -40,18 +46,30 @@ export default function ContactForm() {
   const validate = (): boolean => {
     const tempErrors: FormErrors = {};
 
+    if (!form.name.trim()) {
+      tempErrors.name = "Name is required";
+    }
+
     // Check email
-    if (!form.email) {
+    if (!form.email.trim()) {
       tempErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(form.email)) {
       tempErrors.email = "Please enter a valid email address";
     }
 
     // Check mobile
-    if (!form.mobile) {
+    if (!form.mobile.trim()) {
       tempErrors.mobile = "Mobile number is required";
     } else if (!/^[+]?[0-9\s-]{7,15}$/.test(form.mobile)) {
       tempErrors.mobile = "Please enter a valid phone number";
+    }
+
+    if (!form.company.trim()) {
+      tempErrors.company = "Company name is required";
+    }
+
+    if (!form.message.trim()) {
+      tempErrors.message = "Message is required";
     }
 
     setErrors(tempErrors);
@@ -84,7 +102,7 @@ export default function ContactForm() {
 
       setIsSubmitting(false);
       setIsSuccess(true);
-      setForm({ name: "", mobile: "", email: "", linkedin: "" });
+      setForm({ name: "", mobile: "", email: "", linkedin: "", company: "", message: "" });
     } catch (error) {
       setIsSubmitting(false);
       setErrors((prev) => ({
@@ -129,6 +147,44 @@ export default function ContactForm() {
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-10"
               >
+                {/* Name Input Field */}
+                <div className="flex flex-col">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      name="name"
+                      value={form.name}
+                      onChange={handleInputChange}
+                      placeholder="Name"
+                      className="w-full bg-transparent border-b border-black py-3 text-black text-center font-sans text-base placeholder-black/50 focus:placeholder-black/25 focus:border-black focus:outline-none transition-all duration-300"
+                    />
+                    {errors.name && (
+                      <span className="absolute right-0 top-3 text-red-950 flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider bg-white/30 px-2 py-0.5 rounded">
+                        <AlertCircle className="w-3 h-3" /> {errors.name}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Company Input Field */}
+                <div className="flex flex-col">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      name="company"
+                      value={form.company}
+                      onChange={handleInputChange}
+                      placeholder="Company Name"
+                      className="w-full bg-transparent border-b border-black py-3 text-black text-center font-sans text-base placeholder-black/50 focus:placeholder-black/25 focus:border-black focus:outline-none transition-all duration-300"
+                    />
+                    {errors.company && (
+                      <span className="absolute right-0 top-3 text-red-950 flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider bg-white/30 px-2 py-0.5 rounded">
+                        <AlertCircle className="w-3 h-3" /> {errors.company}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
                 {/* Mobile Input Field */}
                 <div className="flex flex-col">
                   <div className="relative">
@@ -174,9 +230,28 @@ export default function ContactForm() {
                     name="linkedin"
                     value={form.linkedin}
                     onChange={handleInputChange}
-                    placeholder="Linkedin"
+                    placeholder="LinkedIn Profile URL (Optional)"
                     className="w-full bg-transparent border-b border-black py-3 text-black text-center font-sans text-base placeholder-black/50 focus:placeholder-black/25 focus:border-black focus:outline-none transition-all duration-300"
                   />
+                </div>
+
+                {/* Message Input Field */}
+                <div className="flex flex-col">
+                  <div className="relative">
+                    <textarea
+                      name="message"
+                      rows={4}
+                      value={form.message}
+                      onChange={handleInputChange}
+                      placeholder="How can we help you?"
+                      className="w-full bg-transparent border-b border-black py-3 text-black text-center font-sans text-base placeholder-black/50 focus:placeholder-black/25 focus:border-black focus:outline-none transition-all duration-300 resize-none"
+                    />
+                    {errors.message && (
+                      <span className="absolute right-0 top-3 text-red-950 flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider bg-white/30 px-2 py-0.5 rounded">
+                        <AlertCircle className="w-3 h-3" /> {errors.message}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 {errors.submit && (

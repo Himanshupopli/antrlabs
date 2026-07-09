@@ -125,18 +125,20 @@ interface TeamPageProps {
 export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPageProps) {
   // Orange Contact Form states
   const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
   const [mobileNo, setMobileNo] = useState("");
   const [email, setEmail] = useState("");
   const [linkedin, setLinkedin] = useState("");
+  const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
 
-    if (!name.trim() || !mobileNo.trim() || !email.trim() || !linkedin.trim()) {
+    if (!name.trim() || !company.trim() || !mobileNo.trim() || !email.trim() || !message.trim()) {
       setError("Please fill in all the details.");
       return;
     }
@@ -151,15 +153,41 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
       return;
     }
 
-    setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      setIsSubmitting(true);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          company,
+          mobile: mobileNo,
+          email,
+          linkedin,
+          message,
+          source: "Team page contact form"
+        })
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || "Unable to send inquiry");
+      }
+
       setIsSubmitting(false);
       setIsSubmitted(true);
       setName("");
+      setCompany("");
       setMobileNo("");
       setEmail("");
       setLinkedin("");
-    }, 1500);
+      setMessage("");
+    } catch (error) {
+      setIsSubmitting(false);
+      setError(error instanceof Error ? error.message : "Unable to send inquiry");
+    }
   };
 
   return (
@@ -500,6 +528,18 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
                   />
                 </div>
 
+                {/* Company */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="team-form-company"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    placeholder="Company Name"
+                    className="w-full bg-transparent border-b border-black/40 placeholder-black/55 text-black font-sans text-base py-4 focus:outline-none focus:border-black transition-colors"
+                  />
+                </div>
+
                 {/* Mobile No. */}
                 <div className="relative">
                   <input
@@ -531,8 +571,20 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
                     id="team-form-linkedin"
                     value={linkedin}
                     onChange={(e) => setLinkedin(e.target.value)}
-                    placeholder="Linkedin"
+                    placeholder="LinkedIn Profile URL (Optional)"
                     className="w-full bg-transparent border-b border-black/40 placeholder-black/55 text-black font-sans text-base py-4 focus:outline-none focus:border-black transition-colors"
+                  />
+                </div>
+
+                {/* Message */}
+                <div className="relative">
+                  <textarea
+                    id="team-form-message"
+                    rows={4}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="How can we help you?"
+                    className="w-full bg-transparent border-b border-black/40 placeholder-black/55 text-black font-sans text-base py-4 focus:outline-none focus:border-black transition-colors resize-none"
                   />
                 </div>
 
