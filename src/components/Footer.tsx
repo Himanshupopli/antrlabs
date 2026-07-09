@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 interface FooterProps {
   onNavigate: (view: "home" | "contact" | "ideas" | "work" | "team", sectionId?: string) => void;
 }
@@ -10,12 +12,6 @@ export default function Footer({ onNavigate }: FooterProps) {
     { label: "TEAM", href: "#team", action: () => onNavigate("team") },
     { label: "IDEAS", href: "#ideas", action: () => onNavigate("ideas") },
     { label: "CONTACT", href: "#contact", action: () => onNavigate("contact") }
-  ];
-
-  const socialLinks = [
-    { label: "EMAIL", href: "mailto:hello@antrlabs.com" },
-    { label: "LINKEDIN", href: "https://www.linkedin.com/company/antr-labs" },
-    { label: "INSTAGRAM", href: "https://www.instagram.com/antrlabs/" }
   ];
 
   return (
@@ -44,38 +40,21 @@ export default function Footer({ onNavigate }: FooterProps) {
         </div>
 
         {/* Right column: Vertical Footer Navigation Links exactly as PDF */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-10 sm:gap-16 text-center sm:text-right">
-          <div className="flex flex-col items-center sm:items-end gap-5">
-            {footerLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  link.action();
-                }}
-                className="font-mono text-[13px] md:text-sm font-semibold tracking-[0.18em] text-neutral-300 hover:text-white transition-colors duration-300 relative group py-1.5"
-              >
-                {link.label}
-                <span className="absolute bottom-0 right-0 w-0 h-[2px] bg-[#FF4500] transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
-          </div>
-
-          <div className="flex flex-col items-center sm:items-end gap-5">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="font-mono text-[13px] md:text-sm font-semibold tracking-[0.18em] text-neutral-300 hover:text-white transition-colors duration-300 relative group py-1.5"
-              >
-                {link.label}
-                <span className="absolute bottom-0 right-0 w-0 h-[2px] bg-[#FF4500] transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
-          </div>
+        <div className="flex flex-col items-center sm:items-end gap-5 text-center sm:text-right">
+          {footerLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                link.action();
+              }}
+              className="font-mono text-[13px] md:text-sm font-semibold tracking-[0.18em] text-neutral-300 hover:text-white transition-colors duration-300 relative group py-1.5"
+            >
+              {link.label}
+              <span className="absolute bottom-0 right-0 w-0 h-[2px] bg-[#FF4500] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          ))}
         </div>
       </div>
     </footer>
