@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { Instagram, Linkedin, Mail } from "lucide-react";
 
 interface FooterProps {
