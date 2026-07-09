@@ -125,10 +125,8 @@ interface TeamPageProps {
 export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPageProps) {
   // Orange Contact Form states
   const [name, setName] = useState("");
-  const [company, setCompany] = useState("");
   const [mobileNo, setMobileNo] = useState("");
   const [email, setEmail] = useState("");
-  const [linkedin, setLinkedin] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -138,7 +136,7 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
     e.preventDefault();
     setError("");
 
-    if (!name.trim() || !company.trim() || !mobileNo.trim() || !email.trim() || !message.trim()) {
+    if (!name.trim() || !mobileNo.trim() || !email.trim() || !message.trim()) {
       setError("Please fill in all the details.");
       return;
     }
@@ -162,10 +160,8 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
         },
         body: JSON.stringify({
           name,
-          company,
           mobile: mobileNo,
           email,
-          linkedin,
           message,
           source: "Team page contact form"
         })
@@ -179,10 +175,8 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
       setIsSubmitting(false);
       setIsSubmitted(true);
       setName("");
-      setCompany("");
       setMobileNo("");
       setEmail("");
-      setLinkedin("");
       setMessage("");
     } catch (error) {
       setIsSubmitting(false);
@@ -515,7 +509,7 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
 
           <AnimatePresence mode="wait">
             {!isSubmitted ? (
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
                 {/* Name */}
                 <div className="relative">
                   <input
@@ -524,18 +518,6 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Name"
-                    className="w-full bg-transparent border-b border-black/40 placeholder-black/55 text-black font-sans text-base py-4 focus:outline-none focus:border-black transition-colors"
-                  />
-                </div>
-
-                {/* Company */}
-                <div className="relative">
-                  <input
-                    type="text"
-                    id="team-form-company"
-                    value={company}
-                    onChange={(e) => setCompany(e.target.value)}
-                    placeholder="Company Name"
                     className="w-full bg-transparent border-b border-black/40 placeholder-black/55 text-black font-sans text-base py-4 focus:outline-none focus:border-black transition-colors"
                   />
                 </div>
@@ -564,18 +546,6 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
                   />
                 </div>
 
-                {/* LinkedIn */}
-                <div className="relative">
-                  <input
-                    type="text"
-                    id="team-form-linkedin"
-                    value={linkedin}
-                    onChange={(e) => setLinkedin(e.target.value)}
-                    placeholder="LinkedIn Profile URL (Optional)"
-                    className="w-full bg-transparent border-b border-black/40 placeholder-black/55 text-black font-sans text-base py-4 focus:outline-none focus:border-black transition-colors"
-                  />
-                </div>
-
                 {/* Message */}
                 <div className="relative">
                   <textarea
@@ -590,14 +560,14 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
 
                 {/* Error message */}
                 {error && (
-                  <div className="flex items-center gap-2 text-black bg-white/20 px-4 py-2.5 rounded-xl border border-black/10 font-mono text-xs">
+                  <div className="sm:col-span-2 flex items-center gap-2 text-black bg-white/20 px-4 py-2.5 rounded-xl border border-black/10 font-mono text-xs">
                     <AlertCircle className="w-4 h-4 text-black" />
                     <span>{error}</span>
                   </div>
                 )}
 
                 {/* Submit button exactly as PDF (black background, wide rectangular look, rounded-none) */}
-                <div className="pt-6 text-center">
+                <div className="sm:col-span-2 pt-6 text-center">
                   <button
                     type="submit"
                     disabled={isSubmitting}

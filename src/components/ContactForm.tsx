@@ -6,8 +6,6 @@ interface FormState {
   name: string;
   mobile: string;
   email: string;
-  linkedin: string;
-  company: string;
   message: string;
 }
 
@@ -15,7 +13,6 @@ interface FormErrors {
   name?: string;
   mobile?: string;
   email?: string;
-  company?: string;
   message?: string;
   submit?: string;
 }
@@ -29,8 +26,6 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
     name: "",
     mobile: "",
     email: "",
-    linkedin: "",
-    company: "",
     message: ""
   });
 
@@ -68,10 +63,6 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
       tempErrors.mobile = "Please enter a valid phone number";
     }
 
-    if (!form.company.trim()) {
-      tempErrors.company = "Company name is required";
-    }
-
     if (!form.message.trim()) {
       tempErrors.message = "Message is required";
     }
@@ -106,7 +97,7 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
 
       setIsSubmitting(false);
       setIsSuccess(true);
-      setForm({ name: "", mobile: "", email: "", linkedin: "", company: "", message: "" });
+      setForm({ name: "", mobile: "", email: "", message: "" });
     } catch (error) {
       setIsSubmitting(false);
       setErrors((prev) => ({
@@ -140,7 +131,7 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
         </motion.div>
 
         {/* Centered Form */}
-        <div className="w-full max-w-md mx-auto">
+        <div className="w-full max-w-2xl mx-auto">
           <AnimatePresence mode="wait">
             {!isSuccess ? (
               <motion.form
@@ -149,7 +140,7 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-10"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10"
               >
                 {/* Name Input Field */}
                 <div className="flex flex-col">
@@ -165,25 +156,6 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
                     {errors.name && (
                       <span className="absolute right-0 top-3 text-red-950 flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider bg-white/30 px-2 py-0.5 rounded">
                         <AlertCircle className="w-3 h-3" /> {errors.name}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Company Input Field */}
-                <div className="flex flex-col">
-                  <div className="relative">
-                    <input
-                      type="text"
-                      name="company"
-                      value={form.company}
-                      onChange={handleInputChange}
-                      placeholder="Company Name"
-                      className="w-full bg-transparent border-b border-black py-3 text-black text-center font-sans text-base placeholder-black/50 focus:placeholder-black/25 focus:border-black focus:outline-none transition-all duration-300"
-                    />
-                    {errors.company && (
-                      <span className="absolute right-0 top-3 text-red-950 flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider bg-white/30 px-2 py-0.5 rounded">
-                        <AlertCircle className="w-3 h-3" /> {errors.company}
                       </span>
                     )}
                   </div>
@@ -227,18 +199,6 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
                   </div>
                 </div>
 
-                {/* Linkedin Input Field */}
-                <div className="flex flex-col">
-                  <input
-                    type="text"
-                    name="linkedin"
-                    value={form.linkedin}
-                    onChange={handleInputChange}
-                    placeholder="LinkedIn Profile URL (Optional)"
-                    className="w-full bg-transparent border-b border-black py-3 text-black text-center font-sans text-base placeholder-black/50 focus:placeholder-black/25 focus:border-black focus:outline-none transition-all duration-300"
-                  />
-                </div>
-
                 {/* Message Input Field */}
                 <div className="flex flex-col">
                   <div className="relative">
@@ -259,13 +219,13 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
                 </div>
 
                 {errors.submit && (
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-red-950 text-center">
+                  <p className="sm:col-span-2 font-mono text-[10px] uppercase tracking-wider text-red-950 text-center">
                     {errors.submit}
                   </p>
                 )}
 
                 {/* Submit button */}
-                <div className="flex justify-center mt-6">
+                <div className="sm:col-span-2 flex justify-center mt-6">
                   <button
                     type="submit"
                     disabled={isSubmitting}
