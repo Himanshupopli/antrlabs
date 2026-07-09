@@ -190,7 +190,7 @@ export default function App() {
             <Ideas />
 
             {/* 9. High-contrast Orange Contact Form with client-side error checking */}
-            <ContactForm />
+            <ContactForm source="Homepage contact form" />
           </>
         ) : view === "contact" ? (
           <ContactPage
