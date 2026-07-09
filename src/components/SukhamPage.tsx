@@ -32,10 +32,6 @@ const SUKHAM_PHASE_TWO_VIDEOS = [
     videoId: "zDDIaF2nH20"
   },
   {
-    label: "Ad (Square)",
-    videoId: "AM9ZxUgUrYE"
-  },
-  {
     label: "Ad",
     videoId: "gZwnXpUTDJk"
   },
