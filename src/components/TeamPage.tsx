@@ -299,20 +299,8 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
                     {member.name}
                   </h3>
 
-                  {member.linkedinUrl && (
-                    <a
-                      href={member.linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${member.name} LinkedIn`}
-                      className="text-neutral-500 hover:text-white transition-colors p-1 mb-6"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                  )}
-
                   {/* Bullet points perfectly matching formatting */}
-                  <ul className="space-y-3.5 text-left max-w-sm sm:max-w-md mx-auto md:mx-0">
+                  <ul className="space-y-3.5 text-left max-w-sm sm:max-w-md mx-auto md:mx-0 mb-5">
                     {member.bullets.map((bullet, idx) => (
                       <motion.li
                         key={idx}
@@ -327,6 +315,18 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
                       </motion.li>
                     ))}
                   </ul>
+
+                  {member.linkedinUrl && (
+                    <a
+                      href={member.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${member.name} LinkedIn`}
+                      className="text-neutral-500 hover:text-white transition-colors p-1"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}

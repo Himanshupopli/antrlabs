@@ -70,18 +70,8 @@ export default function Founder() {
               Founder & Brand Architect
             </p>
 
-            <a
-              href="https://www.linkedin.com/in/ananyasarkar1"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ananya Sarkar LinkedIn"
-              className="text-neutral-500 hover:text-white transition-colors p-1 mb-8 self-center md:self-start"
-            >
-              <Linkedin className="w-4 h-4" />
-            </a>
-
             {/* Bullet List matching PDF exactly */}
-            <ul className="space-y-4 max-w-lg mb-10 list-none pl-0">
+            <ul className="space-y-4 max-w-lg mb-6 list-none pl-0">
               {bullets.map((bullet, index) => (
                 <motion.li
                   key={index}
@@ -96,6 +86,16 @@ export default function Founder() {
                 </motion.li>
               ))}
             </ul>
+
+            <a
+              href="https://www.linkedin.com/in/ananyasarkar1"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ananya Sarkar LinkedIn"
+              className="text-neutral-500 hover:text-white transition-colors p-1 self-center md:self-start"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
           </motion.div>
         </div>
 
