@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import http from "node:http";
+import crypto from "node:crypto";
 import net from "node:net";
 import path from "node:path";
 import tls from "node:tls";
@@ -25,7 +26,7 @@ const loadEnv = () => {
       value = value.slice(1, -1);
     }
 
-    process.env[match[1]] = value;
+    process.env[match[1]] = value.replace(/\\n/g, "\n");
   }
 };
 
@@ -33,6 +34,8 @@ loadEnv();
 
 const PORT = Number(process.env.PORT || 3001);
 const CONTACT_TO = process.env.CONTACT_TO || "antrlabs@gmail.com";
+const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID || "1OFLzwtMfjyAYahQORiKBksD1i4CeuCPuYXioIO6PNc8";
+const GOOGLE_SHEET_RANGE = process.env.GOOGLE_SHEET_RANGE || "A:H";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -46,7 +49,38 @@ const sanitizeHeader = (value = "") => String(value).replace(/[\r\n]/g, " ").tri
 const normalizeLineEndings = (value) =>
   value.replace(/\r?\n/g, "\r\n").replace(/^\./gm, "..");
 
-const createMessage = ({ name, mobile, email, linkedin, company, message, source }) => {
+const createMultipartMessage = ({ fromName = "ANTR Labs Website", from, to, replyTo, subject, textBody, htmlBody }) => {
+  const boundary = `antr-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+  const headers = [
+    `From: ${sanitizeHeader(fromName)} <${sanitizeHeader(from)}>`,
+    `To: ${sanitizeHeader(to)}`,
+    replyTo ? `Reply-To: ${sanitizeHeader(replyTo)}` : "",
+    `Subject: ${sanitizeHeader(subject)}`,
+    "MIME-Version: 1.0",
+    `Content-Type: multipart/alternative; boundary="${boundary}"`
+  ].filter(Boolean);
+
+  return normalizeLineEndings([
+    ...headers,
+    "",
+    `--${boundary}`,
+    "Content-Type: text/plain; charset=UTF-8",
+    "Content-Transfer-Encoding: 7bit",
+    "",
+    textBody,
+    "",
+    `--${boundary}`,
+    "Content-Type: text/html; charset=UTF-8",
+    "Content-Transfer-Encoding: 7bit",
+    "",
+    htmlBody,
+    "",
+    `--${boundary}--`,
+    ""
+  ].join("\n"));
+};
+
+const createInquiryMessage = ({ name, mobile, email, linkedin, company, message, source }) => {
   const safeName = sanitizeHeader(name || "Website Lead");
   const safeEmail = sanitizeHeader(email);
   const subject = sanitizeHeader(`New ANTR Labs inquiry from ${safeName}`);
@@ -80,34 +114,62 @@ const createMessage = ({ name, mobile, email, linkedin, company, message, source
     <p>${escapeHtml(message || "-").replace(/\n/g, "<br />")}</p>
   `;
 
-  const boundary = `antr-${Date.now().toString(36)}`;
-  const headers = [
-    `From: ANTR Labs Website <${from}>`,
-    `To: ${CONTACT_TO}`,
-    `Reply-To: ${safeName} <${safeEmail}>`,
-    `Subject: ${subject}`,
-    "MIME-Version: 1.0",
-    `Content-Type: multipart/alternative; boundary="${boundary}"`
-  ];
-
-  return normalizeLineEndings([
-    ...headers,
-    "",
-    `--${boundary}`,
-    "Content-Type: text/plain; charset=UTF-8",
-    "Content-Transfer-Encoding: 7bit",
-    "",
+  return createMultipartMessage({
+    from,
+    to: CONTACT_TO,
+    replyTo: `${safeName} <${safeEmail}>`,
+    subject,
     textBody,
+    htmlBody
+  });
+};
+
+const createThankYouMessage = ({ name, email }) => {
+  const safeName = sanitizeHeader(name || "there");
+  const from = sanitizeHeader(process.env.SMTP_FROM || process.env.SMTP_USER);
+  const subject = "Thank you for contacting ANTR Labs";
+
+  const textBody = [
+    `Hi ${safeName},`,
     "",
-    `--${boundary}`,
-    "Content-Type: text/html; charset=UTF-8",
-    "Content-Transfer-Encoding: 7bit",
+    "Thank you for reaching out to ANTR Labs.",
+    "We have received your inquiry and our team will reach out shortly.",
     "",
-    htmlBody,
-    "",
-    `--${boundary}--`,
-    ""
-  ].join("\n"));
+    "Regards,",
+    "ANTR LABS"
+  ].join("\n");
+
+  const htmlBody = `
+    <div style="margin:0;padding:0;background:#050505;font-family:Arial,Helvetica,sans-serif;color:#ffffff;">
+      <div style="max-width:640px;margin:0 auto;padding:40px 24px;">
+        <div style="text-align:center;margin-bottom:34px;">
+          <div style="display:inline-block;border:1px solid #2a2a2a;padding:18px 28px;background:#000000;">
+            <div style="font-size:34px;line-height:0.9;font-weight:900;letter-spacing:0.16em;color:#ffffff;">ANTR</div>
+            <div style="font-size:34px;line-height:0.9;font-weight:900;letter-spacing:0.16em;color:#ffffff;">LABS</div>
+          </div>
+        </div>
+        <div style="border:1px solid #1e1e1e;background:#0b0b0b;padding:34px 28px;text-align:center;">
+          <p style="margin:0 0 14px;font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:#ff4500;">Inquiry Received</p>
+          <h1 style="margin:0 0 18px;font-size:28px;line-height:1.2;color:#ffffff;">Thank you for contacting ANTR Labs.</h1>
+          <p style="margin:0 auto 10px;max-width:460px;font-size:16px;line-height:1.7;color:#c7c7c7;">
+            Hi ${escapeHtml(safeName)}, we have received your inquiry.
+          </p>
+          <p style="margin:0 auto;max-width:460px;font-size:16px;line-height:1.7;color:#c7c7c7;">
+            Our team will review your message and reach out shortly.
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  return createMultipartMessage({
+    fromName: "ANTR Labs",
+    from,
+    to: email,
+    subject,
+    textBody,
+    htmlBody
+  });
 };
 
 const sendSmtpCommand = (state, command, expectedCodes) =>
@@ -165,7 +227,7 @@ const createSocket = ({ host, port, secure }) =>
     socket.once("error", reject);
   });
 
-const sendEmail = async (rawMessage) => {
+const sendEmail = async (rawMessage, recipient = CONTACT_TO) => {
   const host = process.env.SMTP_HOST;
   const port = Number(process.env.SMTP_PORT || 587);
   const user = process.env.SMTP_USER;
@@ -199,12 +261,109 @@ const sendEmail = async (rawMessage) => {
     const auth = Buffer.from(`\u0000${user}\u0000${pass}`).toString("base64");
     await sendSmtpCommand(state, `AUTH PLAIN ${auth}`, 235);
     await sendSmtpCommand(state, `MAIL FROM:<${from}>`, 250);
-    await sendSmtpCommand(state, `RCPT TO:<${CONTACT_TO}>`, [250, 251]);
+    await sendSmtpCommand(state, `RCPT TO:<${recipient}>`, [250, 251]);
     await sendSmtpCommand(state, "DATA", 354);
     await sendSmtpCommand(state, `${rawMessage}\r\n.`, 250);
     await sendSmtpCommand(state, "QUIT", 221).catch(() => undefined);
   } finally {
     state.socket.destroy();
+  }
+};
+
+const base64Url = (value) =>
+  Buffer.from(value)
+    .toString("base64")
+    .replace(/=/g, "")
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_");
+
+const createGoogleJwt = () => {
+  const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+  const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+
+  if (!clientEmail || !privateKey) {
+    return null;
+  }
+
+  const now = Math.floor(Date.now() / 1000);
+  const header = {
+    alg: "RS256",
+    typ: "JWT"
+  };
+  const claim = {
+    iss: clientEmail,
+    scope: "https://www.googleapis.com/auth/spreadsheets",
+    aud: "https://oauth2.googleapis.com/token",
+    exp: now + 3600,
+    iat: now
+  };
+  const unsigned = `${base64Url(JSON.stringify(header))}.${base64Url(JSON.stringify(claim))}`;
+  const signature = crypto.createSign("RSA-SHA256").update(unsigned).sign(privateKey, "base64url");
+
+  return `${unsigned}.${signature}`;
+};
+
+const getGoogleAccessToken = async () => {
+  const assertion = createGoogleJwt();
+
+  if (!assertion) {
+    return null;
+  }
+
+  const response = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: new URLSearchParams({
+      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion
+    })
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data.error_description || data.error || "Unable to get Google access token");
+  }
+
+  return data.access_token;
+};
+
+const appendContactToSheet = async ({ name, mobile, email, linkedin, company, message, source }) => {
+  const accessToken = await getGoogleAccessToken();
+
+  if (!accessToken) {
+    console.warn("Google Sheets sync skipped: service account credentials are not configured.");
+    return;
+  }
+
+  const row = [
+    new Date().toISOString(),
+    source || "Website contact form",
+    name || "",
+    company || "",
+    mobile || "",
+    email || "",
+    linkedin || "",
+    message || ""
+  ];
+
+  const range = encodeURIComponent(GOOGLE_SHEET_RANGE);
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${GOOGLE_SHEET_ID}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      values: [row]
+    })
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data.error?.message || "Unable to append contact to Google Sheet");
   }
 };
 
@@ -289,8 +448,20 @@ const server = http.createServer(async (req, res) => {
         return;
       }
 
-      const rawMessage = createMessage({ name, mobile, email, linkedin, company, message, source });
-      await sendEmail(rawMessage);
+      const lead = { name, mobile, email, linkedin, company, message, source };
+
+      try {
+        await appendContactToSheet(lead);
+      } catch (error) {
+        console.error("Google Sheets append failed:", error);
+      }
+
+      const inquiryMessage = createInquiryMessage(lead);
+      await sendEmail(inquiryMessage, CONTACT_TO);
+
+      const thankYouMessage = createThankYouMessage({ name, email });
+      await sendEmail(thankYouMessage, email);
+
       sendJson(res, 200, { ok: true });
     } catch (error) {
       console.error("Contact form email failed:", error);
