@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Linkedin } from "lucide-react";
 
 export default function Founder() {
   const bullets = [
@@ -68,6 +69,16 @@ export default function Founder() {
             <p className="font-mono text-xs tracking-[0.25em] text-neutral-500 uppercase mb-8">
               Founder & Brand Architect
             </p>
+
+            <a
+              href="https://www.linkedin.com/in/ananyasarkar1"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ananya Sarkar LinkedIn"
+              className="text-neutral-500 hover:text-white transition-colors p-1 mb-8 self-center md:self-start"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
 
             {/* Bullet List matching PDF exactly */}
             <ul className="space-y-4 max-w-lg mb-10 list-none pl-0">

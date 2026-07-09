@@ -12,6 +12,7 @@ interface TeamMember {
   name: string;
   image: string;
   bullets: string[];
+  linkedinUrl?: string;
 }
 
 interface Advisor {
@@ -27,6 +28,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "FOUNDER",
     name: "Ananya Sarkar",
     image: "https://lh3.googleusercontent.com/d/1KYCh6JslUoRBcp57J63drp1Y5557_Yew",
+    linkedinUrl: "https://www.linkedin.com/in/ananyasarkar1",
     bullets: [
       "10+ years across branding building",
       "7+ years across venture building",
@@ -110,7 +112,7 @@ const ADVISORS: Advisor[] = [
     name: "SUDHIR VASHIST",
     role: "Advisor - SEO",
     company: "SEORCE",
-    image: "",
+    image: "/team/sudhir-vashist.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/sudhirvashist/"
   }
 ];
@@ -296,6 +298,18 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
                   <h3 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-6 leading-none">
                     {member.name}
                   </h3>
+
+                  {member.linkedinUrl && (
+                    <a
+                      href={member.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${member.name} LinkedIn`}
+                      className="text-neutral-500 hover:text-white transition-colors p-1 mb-6"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                  )}
 
                   {/* Bullet points perfectly matching formatting */}
                   <ul className="space-y-3.5 text-left max-w-sm sm:max-w-md mx-auto md:mx-0">
