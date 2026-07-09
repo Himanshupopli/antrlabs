@@ -28,19 +28,11 @@ const SUKHAM_PHASE_TWO_VIDEOS = [
     videoId: "G7hwQ0osckw"
   },
   {
-    label: "Product Shot 2",
-    videoId: "EP1qW7FkbKA"
-  },
-  {
     label: "Ad",
     videoId: "zDDIaF2nH20"
   },
   {
     label: "Ad (Square)",
-    videoId: "AM9ZxUgUrYE"
-  },
-  {
-    label: "Ad",
     videoId: "AM9ZxUgUrYE"
   },
   {
@@ -323,7 +315,6 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
                   />
                 </div>
                 <div className="p-4 space-y-1">
-                  <span className="font-mono text-[9px] tracking-widest text-[#FF4500] uppercase font-bold">PILLAR 01</span>
                   <h3 className="text-xs text-white font-semibold">Product Shoot</h3>
                 </div>
               </div>
@@ -339,7 +330,6 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
                   />
                 </div>
                 <div className="p-4 space-y-1">
-                  <span className="font-mono text-[9px] tracking-widest text-[#FF4500] uppercase font-bold">PILLAR 02</span>
                   <h3 className="text-xs text-white font-semibold">Website Evolution</h3>
                 </div>
               </div>
@@ -355,7 +345,6 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
                   />
                 </div>
                 <div className="p-4 space-y-1">
-                  <span className="font-mono text-[9px] tracking-widest text-[#FF4500] uppercase font-bold">PILLAR 03</span>
                   <h3 className="text-xs text-white font-semibold">Social Media</h3>
                 </div>
               </div>
@@ -371,7 +360,6 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
                   />
                 </div>
                 <div className="p-4 space-y-1">
-                  <span className="font-mono text-[9px] tracking-widest text-[#FF4500] uppercase font-bold">PILLAR 04</span>
                   <h3 className="text-xs text-white font-semibold">Display Unit</h3>
                 </div>
               </div>
@@ -395,7 +383,6 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
                   </div>
                 </div>
                 <div className="p-4 space-y-1">
-                  <span className="font-mono text-[9px] tracking-widest text-[#FF4500] uppercase font-bold">PILLAR 05</span>
                   <h3 className="text-xs text-white font-semibold">Shark Tank Display</h3>
                 </div>
               </div>
@@ -403,9 +390,8 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
               {/* Videos */}
               <div className="flex flex-col bg-neutral-950 border border-neutral-900 rounded-2xl overflow-hidden group sm:col-span-2 lg:col-span-3">
                 <div className="p-4 space-y-4">
-                  <span className="font-mono text-[9px] tracking-widest text-[#FF4500] uppercase font-bold">PILLAR 07</span>
                   <h3 className="text-xs text-white font-semibold">Videos</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                     {SUKHAM_PHASE_TWO_VIDEOS.map((video, index) => (
                       <div
                         key={`${video.videoId}-${index}`}
