@@ -89,7 +89,7 @@ export default function CrustAndKettlePage({ onBack, featureImage }: CrustAndKet
 
         {/* 4. Large Crust & Kettle Title */}
         <div className="text-center mb-20 px-4">
-          <WorkFeatureImageHeading label="Crust &amp; Kettle" imageUrl={featureImage} />
+          <WorkFeatureImageHeading label="Crust & Kettle" imageUrl={featureImage} />
         </div>
 
         {/* 5. Clean Metadata Grid */}
