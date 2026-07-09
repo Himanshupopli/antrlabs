@@ -74,9 +74,19 @@ html {
     justify-content: center !important;
   }
 
-  #antr-labs-app main input,
-  #antr-labs-app main textarea,
+  #antr-labs-app main input:placeholder-shown,
+  #antr-labs-app main textarea:placeholder-shown {
+    text-align: center !important;
+  }
+
+  #antr-labs-app main input:not(:placeholder-shown),
+  #antr-labs-app main textarea:not(:placeholder-shown),
   #antr-labs-app main select {
     text-align: left !important;
+  }
+
+  #antr-labs-app main input::placeholder,
+  #antr-labs-app main textarea::placeholder {
+    text-align: center !important;
   }
 }
