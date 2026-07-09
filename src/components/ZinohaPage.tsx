@@ -15,6 +15,8 @@ import {
   Volume2 
 } from "lucide-react";
 
+import WorkLogoHeading from "./WorkLogoHeading";
+
 interface ZinohaPageProps {
   onBack: () => void;
 }
@@ -100,9 +102,7 @@ export default function ZinohaPage({ onBack }: ZinohaPageProps) {
 
         {/* 4. Large Zinoha Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
-            Zinoha
-          </h1>
+          <WorkLogoHeading label="Zinoha" logoUrl="/work-logos/zinoha.png" />
         </div>
 
         {/* 5. Clean Metadata Grid */}

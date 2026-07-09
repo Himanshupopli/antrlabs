@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Award, Activity, Compass } from "lucide-react";
 
+import WorkLogoHeading from "./WorkLogoHeading";
+
 interface FuproPageProps {
   onBack: () => void;
 }
@@ -46,9 +48,7 @@ export default function FuproPage({ onBack }: FuproPageProps) {
 
         {/* 4. Large Fupro Title */}
         <div className="text-center mb-20 px-4">
-          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
-            Fupro
-          </h1>
+          <WorkLogoHeading label="Fupro" logoUrl="/work-logos/fupro.png" />
         </div>
 
         {/* 5. Clean Metadata Grid */}
