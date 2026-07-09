@@ -19,8 +19,6 @@ import {
   Layers
 } from "lucide-react";
 
-import WorkLogoHeading from "./WorkLogoHeading";
-
 interface StreetballPageProps {
   onBack: () => void;
 }
@@ -65,7 +63,9 @@ export default function StreetballPage({ onBack }: StreetballPageProps) {
 
         {/* 4. Large Title */}
         <div className="text-center mb-20 px-4">
-          <WorkLogoHeading label="Streetball League" />
+          <h1 className="font-display font-black text-4xl sm:text-7xl lg:text-8xl tracking-[0.18em] text-white select-none uppercase pl-[0.18em] leading-none">
+            Streetball League
+          </h1>
           <span className="font-mono text-xs sm:text-sm text-neutral-500 tracking-[0.3em] uppercase block mt-4">
             Franchise Identity & Team Branding
           </span>

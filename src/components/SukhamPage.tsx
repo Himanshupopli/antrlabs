@@ -2,8 +2,6 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles, TrendingUp, Users, Award, Shield, BookOpen } from "lucide-react";
 
-import WorkLogoHeading from "./WorkLogoHeading";
-
 interface SukhamPageProps {
   onBack: () => void;
 }
@@ -71,7 +69,9 @@ export default function SukhamPage({ onBack }: SukhamPageProps) {
 
         {/* 4. Large Sukham Title */}
         <div className="text-center mb-20 px-4">
-          <WorkLogoHeading label="Sukham" />
+          <h1 className="font-display font-black text-6xl sm:text-8xl lg:text-9xl tracking-[0.25em] text-white select-none uppercase pl-[0.25em]">
+            Sukham
+          </h1>
         </div>
 
         {/* 5. Clean Metadata Grid */}

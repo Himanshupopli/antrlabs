@@ -2,8 +2,6 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, Sparkles, Coffee, Utensils, ArrowRight, Check, Quote, TrendingUp, Award, Shield } from "lucide-react";
 
-import WorkLogoHeading from "./WorkLogoHeading";
-
 interface CrustAndKettlePageProps {
   onBack: () => void;
 }
@@ -88,7 +86,9 @@ export default function CrustAndKettlePage({ onBack }: CrustAndKettlePageProps) 
 
         {/* 4. Large Crust & Kettle Title */}
         <div className="text-center mb-20 px-4">
-          <WorkLogoHeading label="Crust & Kettle" />
+          <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-8xl tracking-[0.2em] text-white select-none uppercase pl-[0.2em]">
+            Crust & Kettle
+          </h1>
         </div>
 
         {/* 5. Clean Metadata Grid */}
