@@ -321,6 +321,19 @@ const ENRICHED_PROJECTS: ProjectDetail[] = [
   }
 ];
 
+const WORK_PROJECT_ORDER = [
+  "sukham",
+  "tynor",
+  "streetball",
+  "fupro",
+  "zinoha",
+  "mytrident",
+  "siyah",
+  "entero",
+  "vc247",
+  "crustandkettle"
+];
+
 interface WorkPageProps {
   onBackToHome: () => void;
   onNavigateToSection: (sectionId: string) => void;
@@ -337,7 +350,9 @@ export default function WorkPage({
 }: WorkPageProps) {
   const [selectedProject, setSelectedProject] = useState<ProjectDetail | null>(null);
 
-  const filteredProjects = ENRICHED_PROJECTS;
+  const filteredProjects = WORK_PROJECT_ORDER
+    .map((projectId) => ENRICHED_PROJECTS.find((project) => project.id === projectId))
+    .filter((project): project is ProjectDetail => Boolean(project));
 
   useEffect(() => {
     const project = initialProjectId
