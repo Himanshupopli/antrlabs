@@ -9,6 +9,7 @@ import Recognition from "./components/Recognition";
 import Ideas from "./components/Ideas";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import EmailFloater from "./components/EmailFloater";
 import ContactPage from "./components/ContactPage";
 import WorkPage from "./components/WorkPage";
 import TeamPage from "./components/TeamPage";
@@ -218,6 +219,7 @@ export default function App() {
 
       {/* 10. Clean brand Footer */}
       <Footer onNavigate={handleNavigate} />
+      <EmailFloater />
 
       {/* SVG Pencil Sketch Filter Definition */}
       <svg className="sr-only" xmlns="http://www.w3.org/2000/svg">
