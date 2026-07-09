@@ -1,5 +1,3 @@
-import { motion } from "motion/react";
-
 interface FooterProps {
   onNavigate: (view: "home" | "contact" | "ideas" | "work" | "team", sectionId?: string) => void;
 }
