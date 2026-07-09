@@ -414,11 +414,8 @@ export default function WorkPage({
               SELECTED CASE STUDIES
             </span>
             <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight uppercase leading-none">
-              SELECTED WORKS
+              WORK
             </h1>
-            <p className="font-sans text-neutral-400 text-lg sm:text-xl font-light mt-6 max-w-2xl leading-relaxed">
-              We do not believe in massive, diluted portfolios. We build deep, high-impact collaborations with market-disrupting brands who refuse to be ignored.
-            </p>
           </motion.div>
         </div>
 
@@ -478,13 +475,6 @@ export default function WorkPage({
                         </span>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Meta Text details */}
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-[10px] text-neutral-600">
-                      ESTD: {project.year}
-                    </span>
                   </div>
 
                   <h3 className="font-display text-3xl font-bold tracking-wide text-white group-hover:text-[#FF4500] transition-colors leading-tight mb-3">
