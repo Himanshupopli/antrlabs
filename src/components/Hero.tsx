@@ -34,7 +34,6 @@ export default function Hero() {
           src="https://res.cloudinary.com/dqdvr35aj/video/upload/v1783324011/homebanner_qjfash.mp4"
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
-          muted
           loop
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
