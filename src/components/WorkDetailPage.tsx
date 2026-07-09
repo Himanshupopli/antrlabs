@@ -12,6 +12,7 @@ import FuproPage from "./FuproPage";
 import EnteroPage from "./EnteroPage";
 import StreetballPage from "./StreetballPage";
 import MyTridentPage from "./MyTridentPage";
+import WorkLogoHeading from "./WorkLogoHeading";
 
 interface WorkDetailProps {
   project: {
@@ -416,13 +417,9 @@ export default function WorkDetailPage({ project, onBack }: WorkDetailProps) {
 
         {/* 2. Brand Centered Logo */}
         <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="font-display font-extrabold text-5xl sm:text-7xl tracking-[0.15em] text-white block select-none uppercase"
-          >
-            {meta.logo}
-          </motion.span>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <WorkLogoHeading label={meta.logo} />
+          </motion.div>
         </div>
 
         {/* 3. High-fidelity thin bordered Metadata Grid exactly like PDF */}
