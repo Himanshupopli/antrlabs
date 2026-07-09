@@ -9,8 +9,8 @@ export default function Portfolio({ onViewAll }: { onViewAll?: () => void }) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const visibleProjects = [
-    PROJECTS.find(p => p.id === "siyah"),
     PROJECTS.find(p => p.id === "sukham"),
+    PROJECTS.find(p => p.id === "siyah"),
     PROJECTS.find(p => p.id === "mytrident")
   ].filter((p): p is Project => p !== undefined);
 
