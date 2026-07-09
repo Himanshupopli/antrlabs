@@ -131,7 +131,7 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
         </motion.div>
 
         {/* Centered Form */}
-        <div className="w-full max-w-2xl mx-auto">
+        <div className="w-full max-w-md mx-auto">
           <AnimatePresence mode="wait">
             {!isSuccess ? (
               <motion.form
@@ -140,7 +140,7 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 onSubmit={handleSubmit}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10"
+                className="flex flex-col gap-10"
               >
                 {/* Name Input Field */}
                 <div className="flex flex-col">
@@ -219,13 +219,13 @@ export default function ContactForm({ source = "Homepage contact form" }: Contac
                 </div>
 
                 {errors.submit && (
-                  <p className="sm:col-span-2 font-mono text-[10px] uppercase tracking-wider text-red-950 text-center">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-red-950 text-center">
                     {errors.submit}
                   </p>
                 )}
 
                 {/* Submit button */}
-                <div className="sm:col-span-2 flex justify-center mt-6">
+                <div className="flex justify-center mt-6">
                   <button
                     type="submit"
                     disabled={isSubmitting}

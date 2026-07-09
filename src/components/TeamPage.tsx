@@ -509,7 +509,7 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
 
           <AnimatePresence mode="wait">
             {!isSubmitted ? (
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Name */}
                 <div className="relative">
                   <input
@@ -560,14 +560,14 @@ export default function TeamPage({ onBackToHome, onNavigateToSection }: TeamPage
 
                 {/* Error message */}
                 {error && (
-                  <div className="sm:col-span-2 flex items-center gap-2 text-black bg-white/20 px-4 py-2.5 rounded-xl border border-black/10 font-mono text-xs">
+                  <div className="flex items-center gap-2 text-black bg-white/20 px-4 py-2.5 rounded-xl border border-black/10 font-mono text-xs">
                     <AlertCircle className="w-4 h-4 text-black" />
                     <span>{error}</span>
                   </div>
                 )}
 
                 {/* Submit button exactly as PDF (black background, wide rectangular look, rounded-none) */}
-                <div className="sm:col-span-2 pt-6 text-center">
+                <div className="pt-6 text-center">
                   <button
                     type="submit"
                     disabled={isSubmitting}
