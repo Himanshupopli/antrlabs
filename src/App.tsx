@@ -18,8 +18,8 @@ import { PROJECTS } from "./data";
 type View = "home" | "contact" | "ideas" | "work" | "team";
 
 const DEFAULT_META = {
-  title: "ANTR Labs | Brand Strategy, Identity & Growth Studio",
-  description: "ANTR Labs is a branding and venture-building studio helping founders and businesses build differentiated brands through strategy, identity, content, digital experiences and growth systems."
+  title: "Specialised Performance Branding Lab in Delhi | ANTR.Labs",
+  description: "ANTR LABS is a performance branding agency in New Delhi that turns your differentiation into a brand built to drive demand and long-term growth."
 };
 
 const PAGE_META: Record<View, { title: string; description: string }> = {
