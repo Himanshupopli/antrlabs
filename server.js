@@ -1,20 +1,38 @@
-import dotenv from "dotenv";
-import express from "express";
+import fs from "node:fs";
+import http from "node:http";
 import net from "node:net";
 import path from "node:path";
 import tls from "node:tls";
 import { fileURLToPath } from "node:url";
 
-dotenv.config();
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
+const loadEnv = () => {
+  const envPath = path.join(__dirname, ".env");
+  if (!fs.existsSync(envPath)) return;
+
+  const lines = fs.readFileSync(envPath, "utf8").split(/\r?\n/);
+  for (const line of lines) {
+    const match = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
+    if (!match || process.env[match[1]]) continue;
+
+    let value = match[2].trim();
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+
+    process.env[match[1]] = value;
+  }
+};
+
+loadEnv();
+
 const PORT = Number(process.env.PORT || 3001);
 const CONTACT_TO = process.env.CONTACT_TO || "antrlabs@gmail.com";
-
-app.use(express.json({ limit: "32kb" }));
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -147,7 +165,7 @@ const createSocket = ({ host, port, secure }) =>
     socket.once("error", reject);
   });
 
-const sendEmail = async (rawMessage, replyTo) => {
+const sendEmail = async (rawMessage) => {
   const host = process.env.SMTP_HOST;
   const port = Number(process.env.SMTP_PORT || 587);
   const user = process.env.SMTP_USER;
@@ -190,33 +208,106 @@ const sendEmail = async (rawMessage, replyTo) => {
   }
 };
 
-app.post("/api/contact", async (req, res) => {
-  const { name, mobile, email, linkedin, company, message, source } = req.body || {};
+const sendJson = (res, statusCode, data) => {
+  const body = JSON.stringify(data);
+  res.writeHead(statusCode, {
+    "Content-Type": "application/json",
+    "Content-Length": Buffer.byteLength(body)
+  });
+  res.end(body);
+};
 
-  if (!email || !/\S+@\S+\.\S+/.test(email)) {
-    return res.status(400).json({ error: "A valid email address is required." });
+const readJsonBody = (req) =>
+  new Promise((resolve, reject) => {
+    let body = "";
+
+    req.on("data", (chunk) => {
+      body += chunk;
+      if (body.length > 32768) {
+        reject(new Error("Request body too large"));
+        req.destroy();
+      }
+    });
+
+    req.on("end", () => {
+      try {
+        resolve(body ? JSON.parse(body) : {});
+      } catch {
+        reject(new Error("Invalid JSON"));
+      }
+    });
+
+    req.on("error", reject);
+  });
+
+const serveStatic = (req, res) => {
+  const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
+  const requestedPath = decodeURIComponent(url.pathname);
+  const distDir = path.join(__dirname, "dist");
+  const filePath = path.normalize(path.join(distDir, requestedPath === "/" ? "index.html" : requestedPath));
+  const safePath = filePath.startsWith(distDir) && fs.existsSync(filePath) && fs.statSync(filePath).isFile()
+    ? filePath
+    : path.join(distDir, "index.html");
+
+  if (!fs.existsSync(safePath)) {
+    res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+    res.end("Build output not found. Run npm run build before starting the production server.");
+    return;
   }
 
-  if (!mobile || !/^[+]?[0-9\s-]{7,20}$/.test(mobile)) {
-    return res.status(400).json({ error: "A valid mobile number is required." });
+  const ext = path.extname(safePath).toLowerCase();
+  const contentTypes = {
+    ".css": "text/css; charset=utf-8",
+    ".html": "text/html; charset=utf-8",
+    ".js": "text/javascript; charset=utf-8",
+    ".json": "application/json; charset=utf-8",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".svg": "image/svg+xml",
+    ".webp": "image/webp"
+  };
+
+  res.writeHead(200, { "Content-Type": contentTypes[ext] || "application/octet-stream" });
+  fs.createReadStream(safePath).pipe(res);
+};
+
+const server = http.createServer(async (req, res) => {
+  const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
+
+  if (req.method === "POST" && url.pathname === "/api/contact") {
+    try {
+      const { name, mobile, email, linkedin, company, message, source } = await readJsonBody(req);
+
+      if (!email || !/\S+@\S+\.\S+/.test(email)) {
+        sendJson(res, 400, { error: "A valid email address is required." });
+        return;
+      }
+
+      if (!mobile || !/^[+]?[0-9\s-]{7,20}$/.test(mobile)) {
+        sendJson(res, 400, { error: "A valid mobile number is required." });
+        return;
+      }
+
+      const rawMessage = createMessage({ name, mobile, email, linkedin, company, message, source });
+      await sendEmail(rawMessage);
+      sendJson(res, 200, { ok: true });
+    } catch (error) {
+      console.error("Contact form email failed:", error);
+      sendJson(res, 500, { error: "Unable to send your inquiry right now. Please try again later." });
+    }
+
+    return;
   }
 
-  try {
-    const rawMessage = createMessage({ name, mobile, email, linkedin, company, message, source });
-    await sendEmail(rawMessage, email);
-    res.status(200).json({ ok: true });
-  } catch (error) {
-    console.error("Contact form email failed:", error);
-    res.status(500).json({ error: "Unable to send your inquiry right now. Please try again later." });
+  if (req.method === "GET" || req.method === "HEAD") {
+    serveStatic(req, res);
+    return;
   }
+
+  sendJson(res, 405, { error: "Method not allowed" });
 });
 
-app.use(express.static(path.join(__dirname, "dist")));
-
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
-
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`ANTR Labs server listening on http://localhost:${PORT}`);
 });
