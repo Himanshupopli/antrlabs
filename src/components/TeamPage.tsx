@@ -39,7 +39,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     role: "TECH",
     name: "HIMANSHU POPLI",
-    image: "https://lh3.googleusercontent.com/d/1wCTlZ2gXzgLOxnFGvhdVk2Ijbzm29e-f",
+    image: "/team/himanshu-popli.jpeg",
     bullets: [
       "5+ Years Building Digital Products",
       "Scalable Platforms & Technical Systems",
@@ -50,7 +50,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     role: "CONTENT",
     name: "PRAGATI SINGH",
-    image: "https://lh3.googleusercontent.com/d/1C_BZh0UkjxZnI8qiiel72hmvUn-frLTb",
+    image: "/team/pragati-singh.jpeg",
     bullets: [
       "9+ Years in Content & Communications",
       "Government, Media & Brand Storytelling",
@@ -61,7 +61,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     role: "GROWTH",
     name: "SHUBHAM SONI",
-    image: "https://lh3.googleusercontent.com/d/1t5mWm0SdcDh35DFCtJGkqjKN2x_YbORY",
+    image: "/team/shubham-soni.jpeg",
     bullets: [
       "9+ Years in D2C & E-commerce Growth",
       "Shopify, Meta & Google Ads",
@@ -72,7 +72,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     role: "INFLUENCE",
     name: "SNEHAL RAJ",
-    image: "https://lh3.googleusercontent.com/d/1-FQND_x3B0aryGEjrUv3uiMkPE9UU_YY",
+    image: "/team/snehal-raj.jpeg",
     bullets: [
       "Built a 14K Community in 3 Months",
       "Personal Branding & Growth Strategy",
@@ -83,7 +83,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     role: "SUCCESS",
     name: "DIKSHA SINGH",
-    image: "https://lh3.googleusercontent.com/d/13aTBotCkqdetw2PQGJKB1Z21CFP-MDX_",
+    image: "/team/diksha-singh.jpg",
     bullets: [
       "Managed 50+ Client Engagements",
       "5+ Years in Client Success",
