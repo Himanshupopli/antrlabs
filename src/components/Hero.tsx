@@ -22,19 +22,22 @@ export default function Hero() {
     };
   }, []);
 
-  const handleEnableSound = async () => {
+  const handleToggleSound = async () => {
     const video = videoRef.current;
 
     if (!video) return;
 
-    video.muted = false;
-    setIsMuted(false);
+    const nextMuted = !isMuted;
+    video.muted = nextMuted;
+    setIsMuted(nextMuted);
 
-    try {
-      await video.play();
-    } catch {
-      video.muted = true;
-      setIsMuted(true);
+    if (!nextMuted) {
+      try {
+        await video.play();
+      } catch {
+        video.muted = true;
+        setIsMuted(true);
+      }
     }
   };
 
@@ -67,13 +70,14 @@ export default function Hero() {
       {/* Solid transparent overlay to catch and disable all mouse, hover, keyboard, and touch events on the iframe */}
       <div className="absolute inset-0 bg-transparent z-[15] pointer-events-auto cursor-default select-none" />
 
-      {isMuted && videoLoaded && (
+      {videoLoaded && (
         <button
           type="button"
-          onClick={handleEnableSound}
+          onClick={handleToggleSound}
+          aria-pressed={!isMuted}
           className="absolute right-4 bottom-4 md:right-8 md:bottom-8 z-30 border border-white/20 bg-black/60 px-4 py-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-white backdrop-blur-md transition-colors hover:border-[#FF4500] hover:text-[#FF4500] focus:outline-none"
         >
-          Sound On
+          {isMuted ? "Sound On" : "Sound Off"}
         </button>
       )}
 
